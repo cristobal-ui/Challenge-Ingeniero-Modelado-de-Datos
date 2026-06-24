@@ -56,3 +56,17 @@ select
 from {{ ref('mart_campaign_conversion') }}
 where campaign_id = '{{ var("target_campaign_id") }}'
   and is_converted;
+
+-- Q5 — Embudo (funnel) de la campaña por canal del evento 'sent'.
+select
+    fe.channel,
+    count(distinct fe.customer_id)                        as impactados,
+    count(distinct case when m.has_interacted then m.customer_id end) as interactuaron,
+    count(distinct case when m.is_converted   then m.customer_id end) as convirtieron
+from {{ ref('fact_campaign_event') }} fe
+join {{ ref('mart_campaign_conversion') }} m
+    on m.campaign_id = fe.campaign_id and m.customer_id = fe.customer_id
+where fe.campaign_id = '{{ var("target_campaign_id") }}'
+  and fe.event_type = 'sent'
+group by fe.channel
+order by impactados desc;

@@ -7,6 +7,17 @@ campaña `CMP2026053CSI` (3 cuotas sin interés, mayo 2026).
 La solución es **SQL organizado por capas** (`staging` → `marts`), ejecutable
 localmente con **DuckDB** y **pensada para BigQuery** en producción. No requiere GCP.
 
+### ✅ Comandos validados (y su salida esperada)
+
+| Comando | Salida esperada |
+|---|---|
+| `pip install -r requirements.txt && python run_local.py --queries` | build OK + QC (7 WARN controlados) + 5 consultas; **320 impactados, 171 convertidos, 53.44%** |
+| `pip install -r requirements-dbt.txt && cd dbt && dbt build --profiles-dir .` | `Done. PASS=40 WARN=3 ERROR=0` (los 3 WARN = huérfanos controlados) |
+
+> Ambas rutas son **equivalentes** y producen los mismos resultados
+> (501/200/8562/871/480 filas). Se ejecutan en CI en cada push (ver
+> [`.github/workflows/ci.yml`](.github/workflows/ci.yml)).
+
 ---
 
 ## 1. Cómo ejecutar / revisar la solución
@@ -40,9 +51,9 @@ La misma lógica está implementada como **proyecto dbt real** (dbt-duckdb) en
 declarativos** (`unique`, `not_null`, `accepted_values`, `relationships`).
 
 ```bash
-pip install dbt-duckdb
+pip install -r requirements-dbt.txt   # dbt-duckdb==1.10.1 (versión validada)
 cd dbt
-dbt build --profiles-dir .     # construye modelos + corre tests
+dbt build --profiles-dir .            # construye modelos + corre tests
 ```
 
 Resultado esperado: `PASS=40 WARN=3 ERROR=0`. Los 3 WARN son las claves
@@ -59,7 +70,9 @@ challenge_ia_chile/
 ├── quality/quality_checks.sql  # 9 controles de calidad (assertions)
 ├── analytics/business_queries.sql  # 5 consultas de negocio
 ├── run_local.py                # runner / orquestador DuckDB
-├── requirements.txt            # única dependencia: duckdb
+├── requirements.txt            # dependencia ruta A: duckdb
+├── requirements-dbt.txt        # dependencia ruta B: dbt-duckdb==1.10.1
+├── .github/workflows/ci.yml    # CI: corre ambas rutas en cada push
 ├── docs/bigquery_migration.md  # cambios exactos para BigQuery
 └── dbt/                        # ── Opción B: proyecto dbt equivalente ──
     ├── models/{staging,marts}/ # mismos modelos con ref()/source() + schema.yml

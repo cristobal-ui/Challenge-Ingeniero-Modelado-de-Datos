@@ -1,0 +1,37 @@
+name: CI
+
+# Valida que ambas rutas de la solución corran de extremo a extremo.
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  sql-runner:
+    name: SQL por capas (DuckDB)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+      - name: Build + controles de calidad + consultas
+        run: python run_local.py --queries
+
+  dbt-build:
+    name: Proyecto dbt (dbt-duckdb)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Instalar dbt-duckdb
+        run: pip install -r requirements-dbt.txt
+      - name: dbt build (modelos + tests)
+        working-directory: dbt
+        run: dbt build --profiles-dir .
