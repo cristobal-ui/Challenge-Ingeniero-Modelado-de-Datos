@@ -1,5 +1,7 @@
 # Capa analítica — Campaña "3 cuotas sin interés" (3CSI)
 
+[![CI](https://github.com/cristobal-ui/Challenge-Ingeniero-Modelado-de-Datos/actions/workflows/ci.yml/badge.svg)](https://github.com/cristobal-ui/Challenge-Ingeniero-Modelado-de-Datos/actions/workflows/ci.yml)
+
 Modelo de datos simple, confiable y documentado para que **Producto y Marketing**
 midan, de forma autónoma, el **impacto, la interacción y la conversión** de la
 campaña `CMP2026053CSI` (3 cuotas sin interés, mayo 2026).
