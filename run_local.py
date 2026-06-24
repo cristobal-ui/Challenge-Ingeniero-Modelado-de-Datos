@@ -22,6 +22,7 @@ os.chdir(ROOT)  # para que las rutas 'data/...' resuelvan
 # Orden de ejecución = orden de dependencias del DAG.
 BUILD_ORDER = [
     "models/00_sources/raw_sources.sql",
+    "models/00_sources/analysis_config.sql",
     "models/staging/stg_customers.sql",
     "models/staging/stg_accounts.sql",
     "models/staging/stg_cards.sql",
@@ -62,6 +63,23 @@ def run_sql_file(con, path):
         con.execute(fh.read())
 
 
+def print_table(cur):
+    """Imprime un resultado DuckDB como tabla, SIN depender de pandas."""
+    cols = [d[0] for d in cur.description]
+    rows = cur.fetchall()
+    widths = [len(c) for c in cols]
+    str_rows = []
+    for r in rows:
+        cells = ["" if v is None else str(v) for v in r]
+        str_rows.append(cells)
+        widths = [max(w, len(c)) for w, c in zip(widths, cells)]
+    line = "  ".join(c.ljust(widths[i]) for i, c in enumerate(cols))
+    print(line)
+    print("  ".join("-" * widths[i] for i in range(len(cols))))
+    for cells in str_rows:
+        print("  ".join(c.ljust(widths[i]) for i, c in enumerate(cells)))
+
+
 def main():
     db_path = os.path.join(ROOT, "challenge.duckdb")
     if os.path.exists(db_path):
@@ -96,8 +114,17 @@ def main():
     print("   detectados y aislados — no contaminan las metricas oficiales.)")
 
     if "--queries" in sys.argv:
+        # Permite reapuntar la campaña objetivo: --campaign CMP202604CASHBACK
+        if "--campaign" in sys.argv:
+            cid = sys.argv[sys.argv.index("--campaign") + 1]
+            con.execute(
+                "CREATE OR REPLACE VIEW analysis_config AS "
+                f"SELECT '{cid}' AS target_campaign_id, 0 AS attribution_post_days"
+            )
+        target = con.execute(
+            "SELECT target_campaign_id FROM analysis_config").fetchone()[0]
         print("\n" + "=" * 64)
-        print("CONSULTAS DE NEGOCIO — CMP2026053CSI")
+        print(f"CONSULTAS DE NEGOCIO — campaña {target}")
         print("=" * 64)
         # Ejecuta cada sentencia SELECT del archivo y muestra el resultado.
         with open("analytics/business_queries.sql", encoding="utf-8") as fh:
@@ -105,7 +132,7 @@ def main():
                           if "select" in s.lower()]
         for i, stmt in enumerate(statements, 1):
             print(f"\n--- Q{i} ---")
-            print(con.execute(stmt).fetchdf().to_string(index=False))
+            print_table(con.execute(stmt))
 
     con.close()
     print("\nListo. Base persistida en challenge.duckdb")

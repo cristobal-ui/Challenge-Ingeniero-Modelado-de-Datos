@@ -1,0 +1,23 @@
+name: "challenge_3csi"
+version: "1.0.0"
+config-version: 2
+
+# Perfil definido en profiles.yml (se corre con --profiles-dir .)
+profile: "challenge_3csi"
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+
+# Parámetro de negocio: campaña a reportar (no hardcodeado en el SQL).
+vars:
+  target_campaign_id: "CMP2026053CSI"
+
+models:
+  challenge_3csi:
+    staging:
+      +materialized: view      # limpieza ligera -> vistas
+    marts:
+      +materialized: table     # consumo frecuente -> tablas materializadas

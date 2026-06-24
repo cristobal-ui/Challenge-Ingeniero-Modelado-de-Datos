@@ -13,7 +13,7 @@ SELECT
     ROUND(100.0 * SUM(CASE WHEN is_converted THEN 1 ELSE 0 END) / COUNT(*), 2)
                                                           AS tasa_conversion_pct
 FROM mart_campaign_conversion
-WHERE campaign_id = 'CMP2026053CSI';
+WHERE campaign_id = (SELECT target_campaign_id FROM analysis_config);
 
 -- Q2 — Tasa de conversión por segmento de riesgo (rendimiento por segmento).
 SELECT
@@ -24,7 +24,7 @@ SELECT
                                                           AS tasa_conversion_pct
 FROM mart_campaign_conversion m
 JOIN dim_customer dc USING (customer_id)
-WHERE m.campaign_id = 'CMP2026053CSI'
+WHERE m.campaign_id = (SELECT target_campaign_id FROM analysis_config)
 GROUP BY dc.risk_segment
 ORDER BY tasa_conversion_pct DESC;
 
@@ -45,7 +45,7 @@ JOIN fact_transaction t
     AND t.is_3_installments
     AND t.transaction_day BETWEEN c.start_date AND c.end_date
 JOIN dim_merchant dm        ON dm.merchant_id = t.merchant_id
-WHERE m.campaign_id = 'CMP2026053CSI'
+WHERE m.campaign_id = (SELECT target_campaign_id FROM analysis_config)
 GROUP BY dm.merchant_id, dm.merchant_name, dm.merchant_category
 ORDER BY monto_total_3cuotas_clp DESC
 LIMIT 10;
@@ -58,7 +58,7 @@ SELECT
     ROUND(SUM(amount_3cuota_clp) / NULLIF(SUM(num_valid_3cuota_txn),0), 0)
                                                           AS ticket_promedio_clp
 FROM mart_campaign_conversion
-WHERE campaign_id = 'CMP2026053CSI'
+WHERE campaign_id = (SELECT target_campaign_id FROM analysis_config)
   AND is_converted;
 
 -- Q5 — Embudo (funnel) de la campaña por canal del evento 'sent'.
@@ -70,7 +70,7 @@ SELECT
 FROM fact_campaign_event fe
 JOIN mart_campaign_conversion m
     ON m.campaign_id = fe.campaign_id AND m.customer_id = fe.customer_id
-WHERE fe.campaign_id = 'CMP2026053CSI'
+WHERE fe.campaign_id = (SELECT target_campaign_id FROM analysis_config)
   AND fe.event_type = 'sent'
 GROUP BY fe.channel
 ORDER BY impactados DESC;

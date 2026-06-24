@@ -1,0 +1,76 @@
+version: 2
+
+models:
+  - name: dim_customer
+    description: "Dimensión de cliente. Grano: 1 fila por customer_id."
+    columns:
+      - name: customer_id
+        description: "Clave primaria."
+        data_tests: [unique, not_null]
+      - name: risk_segment
+        description: "Segmento de riesgo (atributo de análisis)."
+
+  - name: dim_merchant
+    description: "Dimensión de comercio. Grano: 1 fila por merchant_id."
+    columns:
+      - name: merchant_id
+        description: "Clave primaria."
+        data_tests: [unique, not_null]
+
+  - name: fact_transaction
+    description: "Hecho transaccional. Grano: 1 fila por transaction_id."
+    columns:
+      - name: transaction_id
+        description: "Clave primaria."
+        data_tests: [unique, not_null]
+      - name: customer_id
+        description: "FK a dim_customer. Severity=warn: existen huérfanos por diseño del dataset."
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('dim_customer')
+                field: customer_id
+              config:
+                severity: warn
+      - name: merchant_id
+        description: "FK a dim_merchant. Severity=warn por huérfanos controlados."
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('dim_merchant')
+                field: merchant_id
+              config:
+                severity: warn
+      - name: is_valid_transaction
+        description: "Bandera de validez de negocio (ver stg_transactions)."
+
+  - name: fact_campaign_event
+    description: "Hecho de interacción cliente-campaña. Grano: 1 fila por event_id."
+    columns:
+      - name: event_id
+        description: "Clave primaria."
+        data_tests: [unique, not_null]
+      - name: campaign_id
+        description: "FK a stg_campaigns. Severity=warn por eventos huérfanos."
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_campaigns')
+                field: campaign_id
+              config:
+                severity: warn
+
+  - name: mart_campaign_conversion
+    description: >
+      Mart de conversión de campaña. Grano: 1 fila por (campaign_id,
+      customer_id) para clientes impactados. Tabla de consumo self-service.
+    columns:
+      - name: campaign_id
+        data_tests: [not_null]
+      - name: customer_id
+        description: "Cliente impactado por la campaña."
+        data_tests: [not_null]
+      - name: is_converted
+        description: "TRUE si el cliente impactado realizó >=1 compra válida en 3 cuotas en la ventana."
+    # La unicidad compuesta (campaign_id, customer_id) se valida con el test
+    # singular tests/assert_unique_campaign_customer.sql (sin dependencias externas).

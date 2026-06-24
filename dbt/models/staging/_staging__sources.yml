@@ -1,0 +1,19 @@
+version: 2
+
+# Fuentes crudas leídas directamente desde los CSV (external sources de
+# dbt-duckdb). Se cargan como texto (all_varchar) para no ocultar errores
+# de calidad; el tipado ocurre en staging. En BigQuery estas serían tablas
+# nativas cargadas con `bq load` / external tables sobre GCS.
+sources:
+  - name: raw
+    description: "CSV crudos del dataset del challenge."
+    meta:
+      external_location: "read_csv('../data/{name}.csv', header=true, all_varchar=true)"
+    tables:
+      - name: raw_customers
+      - name: raw_accounts
+      - name: raw_cards
+      - name: raw_merchants
+      - name: raw_campaigns
+      - name: raw_campaign_events
+      - name: raw_transactions

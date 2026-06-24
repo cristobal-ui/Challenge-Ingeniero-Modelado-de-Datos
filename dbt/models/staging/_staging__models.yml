@@ -1,0 +1,70 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: "Clientes limpios y deduplicados. Grano: 1 fila por cliente."
+    columns:
+      - name: customer_id
+        description: "Identificador del cliente. Clave primaria."
+        data_tests: [unique, not_null]
+      - name: customer_status
+        description: "Estado normalizado del cliente."
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ["active", "inactive", "blocked", "unknown"]
+      - name: risk_segment
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ["low", "medium", "high", "unknown"]
+
+  - name: stg_accounts
+    description: "Cuentas limpias. Grano: 1 fila por account_id."
+    columns:
+      - name: account_id
+        data_tests: [unique, not_null]
+
+  - name: stg_cards
+    description: "Tarjetas limpias. Grano: 1 fila por card_id."
+    columns:
+      - name: card_id
+        data_tests: [unique, not_null]
+
+  - name: stg_merchants
+    description: "Comercios limpios y deduplicados. Grano: 1 fila por merchant_id."
+    columns:
+      - name: merchant_id
+        data_tests: [unique, not_null]
+
+  - name: stg_campaigns
+    description: "Campañas con fechas tipadas y bandera de rango válido."
+    columns:
+      - name: campaign_id
+        data_tests: [unique, not_null]
+      - name: is_valid_date_range
+        description: "FALSE si end_date < start_date (campaña inválida)."
+
+  - name: stg_campaign_events
+    description: "Eventos de campaña limpios y deduplicados. Grano: 1 fila por event_id."
+    columns:
+      - name: event_id
+        data_tests: [unique, not_null]
+      - name: event_type
+        description: "Tipo de evento normalizado (puede incluir valores no estándar)."
+
+  - name: stg_transactions
+    description: "Transacciones limpias con banderas de calidad y validez de negocio."
+    columns:
+      - name: transaction_id
+        description: "Identificador de transacción. Clave primaria."
+        data_tests: [unique, not_null]
+      - name: transaction_status
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ["approved", "pending", "rejected", "reversed", "unknown"]
+      - name: is_valid_transaction
+        description: >
+          Definición ÚNICA de transacción válida: compra aprobada, monto > 0
+          y fecha no futura. Reutilizada por hechos, mart y consultas.

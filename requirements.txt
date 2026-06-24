@@ -1,0 +1,3 @@
+# Única dependencia para ejecutar la solución localmente.
+# El runner no usa pandas: imprime los resultados con un formateador propio.
+duckdb>=1.0

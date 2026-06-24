@@ -11,33 +11,65 @@ localmente con **DuckDB** y **pensada para BigQuery** en producción. No requier
 
 ## 1. Cómo ejecutar / revisar la solución
 
-**Requisito:** Python 3.9+ y la librería `duckdb`.
+**Requisito:** Python 3.9+ y la librería `duckdb` (única dependencia; el
+runner **no usa pandas**).
 
 ```bash
-pip install duckdb
+pip install -r requirements.txt   # solo duckdb
 
 # Construye todo el modelo desde los CSV crudos y corre los controles de calidad
 python run_local.py
 
 # Igual que lo anterior + imprime las 5 consultas de negocio
 python run_local.py --queries
+
+# Reapuntar el reporte a otra campaña (parametrizable, sin tocar SQL)
+python run_local.py --queries --campaign CMP202604CASHBACK
 ```
 
 El script construye las capas en orden de dependencias, deja la base en
 `challenge.duckdb` (inspeccionable con cualquier cliente DuckDB) e imprime:
 conteos por modelo, violaciones por control de calidad y resultados de negocio.
+La campaña objetivo se define en `models/00_sources/analysis_config.sql` (no
+está hardcodeada en las consultas).
+
+### Opción B — proyecto dbt (mismo modelo, orquestado)
+
+La misma lógica está implementada como **proyecto dbt real** (dbt-duckdb) en
+[`dbt/`](dbt/), con `sources`, `ref()`, `schema.yml` documentado y **tests
+declarativos** (`unique`, `not_null`, `accepted_values`, `relationships`).
+
+```bash
+pip install dbt-duckdb
+cd dbt
+dbt build --profiles-dir .     # construye modelos + corre tests
+```
+
+Resultado esperado: `PASS=40 WARN=3 ERROR=0`. Los 3 WARN son las claves
+huérfanas controladas (integridad referencial con `severity: warn`): el modelo
+las detecta sin romper el pipeline. Ver [`dbt/README.md`](dbt/README.md).
 
 ```
 challenge_ia_chile/
 ├── data/                       # CSV crudos + diccionario de datos
-├── models/
-│   ├── 00_sources/             # carga de CSV (solo para correr local; en BQ son tablas nativas)
+├── models/                     # ── Opción A: SQL puro por capas ──
+│   ├── 00_sources/             # carga de CSV + analysis_config (parámetros)
 │   ├── staging/                # 1 vista por fuente: limpia, tipa, normaliza, deduplica
 │   └── marts/                  # dimensiones, hechos y mart de negocio
 ├── quality/quality_checks.sql  # 9 controles de calidad (assertions)
 ├── analytics/business_queries.sql  # 5 consultas de negocio
-└── run_local.py                # runner / orquestador DuckDB
+├── run_local.py                # runner / orquestador DuckDB
+├── requirements.txt            # única dependencia: duckdb
+├── docs/bigquery_migration.md  # cambios exactos para BigQuery
+└── dbt/                        # ── Opción B: proyecto dbt equivalente ──
+    ├── models/{staging,marts}/ # mismos modelos con ref()/source() + schema.yml
+    ├── analyses/               # consultas de negocio (parametrizadas con var)
+    └── tests/                  # test singular de unicidad compuesta
 ```
+
+> Hay **dos implementaciones equivalentes** del mismo modelo: SQL puro por capas
+> (Opción A, sin frameworks) y un proyecto dbt (Opción B). Ambas producen los
+> mismos resultados (501/200/8562/871/480 filas; 320 impactados, 171 convertidos).
 
 ---
 
@@ -230,9 +262,12 @@ documenta**, y no entran en las métricas oficiales.
 
 ## 9. Qué haría distinto en producción sobre BigQuery
 
+> Detalle función-por-función y DDL de ejemplo en
+> [`docs/bigquery_migration.md`](docs/bigquery_migration.md).
+
 - **Dialecto SQL.** Sustituir las funciones DuckDB por sus equivalentes BQ:
-  `TRY_CAST` → `SAFE_CAST`; parseo de fechas → `SAFE.PARSE_TIMESTAMP`/`PARSE_DATE`;
-  `DATE_DIFF('year', a, b)` → `DATE_DIFF(b, a, YEAR)`. La estructura por capas no cambia.
+  `TRY_CAST` → `SAFE_CAST`; `DATE_DIFF('year', a, b)` → `DATE_DIFF(b, a, YEAR)`;
+  `BOOL_OR` → `LOGICAL_OR`. La estructura por capas no cambia.
 - **Orquestación con dbt o Dataform.** Capas como modelos versionados, los controles de
   calidad como `tests`/`assertions`, y `ref()`/`source()` para el DAG y el linaje.
 - **Particionado y clustering.** `fact_transaction` particionada por `transaction_day`

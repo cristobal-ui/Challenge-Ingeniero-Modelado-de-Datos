@@ -1,0 +1,6 @@
+target/
+dbt_packages/
+logs/
+challenge_dbt.duckdb
+challenge_dbt.duckdb.wal
+.user.yml

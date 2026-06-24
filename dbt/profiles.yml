@@ -1,0 +1,8 @@
+# Perfil local de DuckDB. La base se crea en el directorio del proyecto dbt.
+challenge_3csi:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: challenge_dbt.duckdb
+      threads: 4
