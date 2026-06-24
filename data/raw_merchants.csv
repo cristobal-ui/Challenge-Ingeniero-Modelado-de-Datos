@@ -1,0 +1,202 @@
+merchant_id,merchant_name,merchant_category,region,city
+MERC00001,Travel Store 1,travel,Los Lagos,Osorno
+MERC00002,Services Store 2,services,RM,Providencia
+MERC00003,Home Store 3,home,Antofagasta,Antofagasta
+MERC00004,Food Delivery Store 4,food_delivery,Coquimbo,La Serena
+MERC00005,Fashion Store 5,fashion,Biobio,Talcahuano
+MERC00006,Home Store 6,home,Antofagasta,Calama
+MERC00007,Pharmacy Store 7,pharmacy,Antofagasta,Calama
+MERC00008,Electronics Store 8,electronics,Antofagasta,Antofagasta
+MERC00009,Electronics Store 9,electronics,Antofagasta,Antofagasta
+MERC00010,Pharmacy Store 10,pharmacy,Coquimbo,La Serena
+MERC00011,Marketplace Store 11,marketplace,Valparaiso,Vina del Mar
+MERC00012,Health Store 12,health,RM,Las Condes
+MERC00013,Home Store 13,home,Antofagasta,Calama
+MERC00014,Marketplace Store 14,marketplace,Antofagasta,Calama
+MERC00015,Food Delivery Store 15,food_delivery,Coquimbo,Coquimbo
+MERC00016,Food Delivery Store 16,food_delivery,Valparaiso,Valparaiso
+MERC00017,Marketplace Store 17,marketplace,Valparaiso,Valparaiso
+MERC00018,Travel Store 18,travel,Valparaiso,Valparaiso
+MERC00019,Home Store 19,home,Los Lagos,Puerto Montt
+MERC00020,Travel Store 20,travel,RM,Santiago
+MERC00021,Fashion Store 21,fashion,Antofagasta,Calama
+MERC00022,Home Store 22,home,Coquimbo,Coquimbo
+MERC00023,Electronics Store 23,electronics,Biobio,Los Angeles
+MERC00024,Fashion Store 24,fashion,Valparaiso,Quilpue
+MERC00025,Education Store 25,education,Los Lagos,Puerto Varas
+MERC00026,Health Store 26,health,Biobio,Talcahuano
+MERC00027,Electronics Store 27,electronics,Biobio,Los Angeles
+MERC00028,Travel Store 28,travel,Antofagasta,Antofagasta
+MERC00029,Travel Store 29,travel,Coquimbo,Coquimbo
+MERC00030,Education Store 30,education,Los Lagos,Osorno
+MERC00031,Pharmacy Store 31,pharmacy,Los Lagos,Osorno
+MERC00032,Health Store 32,health,Coquimbo,La Serena
+MERC00033,Home Store 33,home,Los Lagos,Osorno
+MERC00034,Home Store 34,home,Valparaiso,Valparaiso
+MERC00035,Home Store 35,home,Los Lagos,Osorno
+MERC00036,Food Delivery Store 36,food_delivery,Coquimbo,Coquimbo
+MERC00037,Fashion Store 37,fashion,Antofagasta,Antofagasta
+MERC00038,Supermarket Store 38,supermarket,Biobio,Concepcion
+MERC00039,Home Store 39,home,Valparaiso,Vina del Mar
+MERC00040,Supermarket Store 40,supermarket,Antofagasta,Antofagasta
+MERC00041,Home Store 41,home,Antofagasta,Calama
+MERC00042,Pharmacy Store 42,pharmacy,RM,Providencia
+MERC00043,Marketplace Store 43,marketplace,Antofagasta,Antofagasta
+MERC00044,Services Store 44,services,Biobio,Concepcion
+MERC00045,Education Store 45,education,Biobio,Los Angeles
+MERC00046,Pharmacy Store 46,pharmacy,Los Lagos,Puerto Montt
+MERC00047,Supermarket Store 47,supermarket,Biobio,Los Angeles
+MERC00048,Education Store 48,education,Antofagasta,Antofagasta
+MERC00049,Education Store 49,education,Antofagasta,Calama
+MERC00050,Services Store 50,services,Valparaiso,Vina del Mar
+MERC00051,Supermarket Store 51,supermarket,Antofagasta,Antofagasta
+MERC00052,Marketplace Store 52,marketplace,Biobio,Concepcion
+MERC00053,Travel Store 53,travel,Coquimbo,La Serena
+MERC00054,Fashion Store 54,fashion,Valparaiso,Valparaiso
+MERC00055,Education Store 55,education,RM,Santiago
+MERC00056,Home Store 56,home,Coquimbo,La Serena
+MERC00057,Pharmacy Store 57,pharmacy,RM,Puente Alto
+MERC00058,Marketplace Store 58,marketplace,Valparaiso,Quilpue
+MERC00059,Home Store 59,home,Coquimbo,La Serena
+MERC00060,Travel Store 60,travel,Coquimbo,Coquimbo
+MERC00061,Health Store 61,health,Antofagasta,Calama
+MERC00062,Fashion Store 62,fashion,RM,Nunoa
+MERC00063,Services Store 63,services,Los Lagos,Osorno
+MERC00064,Food Delivery Store 64,food_delivery,RM,Santiago
+MERC00065,Pharmacy Store 65,pharmacy,Antofagasta,Antofagasta
+MERC00066,Education Store 66,education,RM,Las Condes
+MERC00067,Marketplace Store 67,marketplace,RM,Providencia
+MERC00068,Health Store 68,health,Valparaiso,Quilpue
+MERC00069,Services Store 69,services,Los Lagos,Puerto Montt
+MERC00070,Pharmacy Store 70,pharmacy,Coquimbo,La Serena
+MERC00071,Home Store 71,home,Biobio,Los Angeles
+MERC00072,Education Store 72,education,RM,Providencia
+MERC00073,Marketplace Store 73,marketplace,Antofagasta,Antofagasta
+MERC00074,Electronics Store 74,electronics,Los Lagos,Puerto Montt
+MERC00075,Electronics Store 75,electronics,RM,Las Condes
+MERC00076,Marketplace Store 76,marketplace,Valparaiso,Vina del Mar
+MERC00077,Travel Store 77,travel,Coquimbo,La Serena
+MERC00078,Services Store 78,services,RM,Las Condes
+MERC00079,Electronics Store 79,electronics,Biobio,Talcahuano
+MERC00080,Pharmacy Store 80,pharmacy,Coquimbo,La Serena
+MERC00081,Travel Store 81,travel,Coquimbo,La Serena
+MERC00082,Fashion Store 82,fashion,Biobio,Concepcion
+MERC00083,Travel Store 83,travel,Coquimbo,Coquimbo
+MERC00084,Marketplace Store 84,marketplace,Biobio,Concepcion
+MERC00085,Food Delivery Store 85,food_delivery,Biobio,Talcahuano
+MERC00086,Food Delivery Store 86,food_delivery,Valparaiso,Vina del Mar
+MERC00087,Pharmacy Store 87,pharmacy,Valparaiso,Vina del Mar
+MERC00088,Pharmacy Store 88,pharmacy,Coquimbo,Coquimbo
+MERC00089,Home Store 89,home,RM,Maipu
+MERC00090,Home Store 90,home,Antofagasta,Calama
+MERC00091,Services Store 91,services,Coquimbo,Coquimbo
+MERC00092,Supermarket Store 92,supermarket,Coquimbo,La Serena
+MERC00093,Travel Store 93,travel,Antofagasta,Calama
+MERC00094,Fashion Store 94,fashion,Antofagasta,Antofagasta
+MERC00095,Services Store 95,services,Biobio,Los Angeles
+MERC00096,Home Store 96,home,Biobio,Concepcion
+MERC00097,Electronics Store 97,electronics,Coquimbo,Coquimbo
+MERC00098,Pharmacy Store 98,pharmacy,Antofagasta,Antofagasta
+MERC00099,Pharmacy Store 99,pharmacy,Valparaiso,Vina del Mar
+MERC00100,Health Store 100,health,RM,Santiago
+MERC00101,Education Store 101,education,Coquimbo,La Serena
+MERC00102,Marketplace Store 102,marketplace,Valparaiso,Vina del Mar
+MERC00103,Marketplace Store 103,marketplace,Biobio,Talcahuano
+MERC00104,Marketplace Store 104,marketplace,Los Lagos,Osorno
+MERC00105,Electronics Store 105,electronics,RM,Providencia
+MERC00106,Supermarket Store 106,supermarket,Coquimbo,Coquimbo
+MERC00107,Education Store 107,education,Valparaiso,Vina del Mar
+MERC00108,Services Store 108,services,Biobio,Talcahuano
+MERC00109,Home Store 109,home,RM,Las Condes
+MERC00110,Education Store 110,education,Biobio,Concepcion
+MERC00111,Supermarket Store 111,supermarket,Antofagasta,Antofagasta
+MERC00112,Education Store 112,education,Los Lagos,Osorno
+MERC00113,Fashion Store 113,fashion,Antofagasta,Calama
+MERC00114,Pharmacy Store 114,pharmacy,Los Lagos,Puerto Montt
+MERC00115,Marketplace Store 115,marketplace,Coquimbo,Coquimbo
+MERC00116,Services Store 116,services,Biobio,Talcahuano
+MERC00117,Supermarket Store 117,supermarket,Los Lagos,Puerto Varas
+MERC00118,Electronics Store 118,electronics,Valparaiso,Quilpue
+MERC00119,Pharmacy Store 119,pharmacy,Los Lagos,Puerto Varas
+MERC00120,Marketplace Store 120,marketplace,Antofagasta,Calama
+MERC00121,Health Store 121,health,RM,Las Condes
+MERC00122,Marketplace Store 122,marketplace,Valparaiso,Vina del Mar
+MERC00123,Marketplace Store 123,marketplace,Coquimbo,La Serena
+MERC00124,Services Store 124,services,Valparaiso,Valparaiso
+MERC00125,Electronics Store 125,electronics,Biobio,Concepcion
+MERC00126,Home Store 126,home,Biobio,Concepcion
+MERC00127,Travel Store 127,travel,Los Lagos,Puerto Varas
+MERC00128,Services Store 128,services,Los Lagos,Puerto Montt
+MERC00129,Travel Store 129,travel,Valparaiso,Valparaiso
+MERC00130,Electronics Store 130,electronics,Biobio,Talcahuano
+MERC00131,Food Delivery Store 131,food_delivery,Valparaiso,Valparaiso
+MERC00132,Food Delivery Store 132,food_delivery,Los Lagos,Puerto Montt
+MERC00133,Health Store 133,health,Valparaiso,Quilpue
+MERC00134,Education Store 134,education,Biobio,Concepcion
+MERC00135,Electronics Store 135,electronics,Valparaiso,Vina del Mar
+MERC00136,Services Store 136,services,Los Lagos,Osorno
+MERC00137,Food Delivery Store 137,food_delivery,Los Lagos,Osorno
+MERC00138,Fashion Store 138,fashion,Los Lagos,Osorno
+MERC00139,Food Delivery Store 139,food_delivery,Los Lagos,Osorno
+MERC00140,Travel Store 140,travel,RM,Maipu
+MERC00141,Fashion Store 141,fashion,Biobio,Concepcion
+MERC00142,Services Store 142,services,Biobio,Talcahuano
+MERC00143,Marketplace Store 143,marketplace,Coquimbo,Coquimbo
+MERC00144,Electronics Store 144,electronics,Los Lagos,Osorno
+MERC00145,Services Store 145,services,Biobio,Talcahuano
+MERC00146,Food Delivery Store 146,food_delivery,Coquimbo,La Serena
+MERC00147,Food Delivery Store 147,food_delivery,Antofagasta,Antofagasta
+MERC00148,Home Store 148,home,Biobio,Talcahuano
+MERC00149,Marketplace Store 149,marketplace,Antofagasta,Antofagasta
+MERC00150,Electronics Store 150,electronics,Antofagasta,Calama
+MERC00151,Travel Store 151,travel,Coquimbo,La Serena
+MERC00152,Supermarket Store 152,supermarket,Los Lagos,Puerto Montt
+MERC00153,Fashion Store 153,fashion,Valparaiso,Vina del Mar
+MERC00154,Fashion Store 154,fashion,RM,Providencia
+MERC00155,Fashion Store 155,fashion,Coquimbo,La Serena
+MERC00156,Pharmacy Store 156,pharmacy,Valparaiso,Vina del Mar
+MERC00157,Education Store 157,education,Los Lagos,Osorno
+MERC00158,Fashion Store 158,fashion,RM,Providencia
+MERC00159,Fashion Store 159,fashion,Valparaiso,Valparaiso
+MERC00160,Education Store 160,education,Coquimbo,La Serena
+MERC00161,Services Store 161,services,RM,Providencia
+MERC00162,Services Store 162,services,Coquimbo,La Serena
+MERC00163,Travel Store 163,travel,Los Lagos,Puerto Montt
+MERC00164,Marketplace Store 164,marketplace,Biobio,Concepcion
+MERC00165,Services Store 165,services,Antofagasta,Calama
+MERC00166,Education Store 166,education,Los Lagos,Puerto Montt
+MERC00167,Fashion Store 167,fashion,Coquimbo,Coquimbo
+MERC00168,Fashion Store 168,fashion,RM,Providencia
+MERC00169,Services Store 169,services,Biobio,Los Angeles
+MERC00170,Education Store 170,education,RM,Puente Alto
+MERC00171,Education Store 171,education,Antofagasta,Calama
+MERC00172,Health Store 172,health,Coquimbo,Coquimbo
+MERC00173,Travel Store 173,travel,Biobio,Concepcion
+MERC00174,Fashion Store 174,fashion,Los Lagos,Osorno
+MERC00175,Travel Store 175,travel,Coquimbo,La Serena
+MERC00176,Marketplace Store 176,marketplace,RM,Providencia
+MERC00177,Health Store 177,health,Biobio,Concepcion
+MERC00178,Fashion Store 178,fashion,Antofagasta,Calama
+MERC00179,Pharmacy Store 179,pharmacy,RM,Maipu
+MERC00180,Education Store 180,education,RM,Santiago
+MERC00181,Supermarket Store 181,supermarket,Los Lagos,Puerto Varas
+MERC00182,Pharmacy Store 182,pharmacy,Antofagasta,Calama
+MERC00183,Services Store 183,services,Los Lagos,Puerto Varas
+MERC00184,Health Store 184,health,Biobio,Concepcion
+MERC00185,Pharmacy Store 185,pharmacy,Biobio,Concepcion
+MERC00186,Supermarket Store 186,supermarket,Biobio,Talcahuano
+MERC00187,Pharmacy Store 187,pharmacy,Los Lagos,Puerto Varas
+MERC00188,Marketplace Store 188,marketplace,Coquimbo,La Serena
+MERC00189,Supermarket Store 189,supermarket,RM,Providencia
+MERC00190,Food Delivery Store 190,food_delivery,Antofagasta,Calama
+MERC00191,Health Store 191,health,Valparaiso,Valparaiso
+MERC00192,Travel Store 192,travel,RM,Las Condes
+MERC00193,Fashion Store 193,fashion,Coquimbo,Coquimbo
+MERC00194,Education Store 194,education,Biobio,Talcahuano
+MERC00195,Health Store 195,health,Coquimbo,La Serena
+MERC00196,Supermarket Store 196,supermarket,Antofagasta,Calama
+MERC00197,Home Store 197,home,RM,Providencia
+MERC00198,Marketplace Store 198,marketplace,RM,Las Condes
+MERC00199,Fashion Store 199,fashion,Coquimbo,La Serena
+MERC00200,Home Store 200,home,Antofagasta,Antofagasta
+MERC00020,Duplicate Merchant Name,electronics,RM,Las Condes

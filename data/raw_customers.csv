@@ -1,0 +1,504 @@
+customer_id,created_at,birth_date,gender,region,city,customer_status,risk_segment,income_range
+CUST00001,2022-02-21 15:14:08,1984-09-03,M,Coquimbo,La Serena,active,high,0-500k
+CUST00002,2022-03-07 10:13:14,1962-09-03,M,Antofagasta,Calama,active,low,4M+
+CUST00003,2024-07-08 08:48:51,1984-12-15,F,Los Lagos,Puerto Montt,active,low,500k-1M
+CUST00004,2022-07-09 11:22:54,1994-01-31,F,Biobio,Concepcion,active,low,2M-4M
+CUST00005,2024-02-15 17:53:40,1967-01-26,M,Antofagasta,Antofagasta,inactive,medium,0-500k
+CUST00006,2023-04-12 10:54:14,1985-12-17,M,RM,Nunoa,active,medium,1M-2M
+CUST00007,2023-12-29 16:44:59,1978-10-18,M,Valparaiso,Vina del Mar,active,medium,4M+
+CUST00008,2022-12-01 20:17:59,2001-06-21,M,Coquimbo,La Serena,active,medium,0-500k
+CUST00009,2023-10-09 16:04:13,1995-12-28,M,Valparaiso,Valparaiso,active,medium,500k-1M
+CUST00010,2024-03-21 12:16:08,2001-03-01,F,Coquimbo,Coquimbo,active,low,4M+
+CUST00011,2024-03-28 15:08:32,1992-06-22,M,Los Lagos,Osorno,active,high,500k-1M
+CUST00012,2025-10-25 10:24:24,1997-11-15,M,Coquimbo,La Serena,active,low,4M+
+CUST00013,2026-01-16 16:49:41,1970-04-11,F,RM,Nunoa,active,low,0-500k
+CUST00014,2024-10-22 11:55:40,1976-01-11,F,Coquimbo,Coquimbo,active,medium,500k-1M
+CUST00015,2025-01-09 18:31:01,1960-01-19,F,Biobio,Concepcion,active,unclassified,1M-2M
+CUST00016,2023-05-09 10:46:31,1967-01-24,M,Valparaiso,Valparaiso,unknown,medium,500k-1M
+CUST00017,2024-08-31 16:33:55,1974-10-24,M,Valparaiso,Quilpue,ACTIVE,high,500k-1M
+CUST00018,2024-03-28 22:57:33,1993-07-02,F,Coquimbo,Coquimbo,active,low,0-500k
+CUST00019,2025-04-20 08:04:45,1979-10-04,M,Antofagasta,Antofagasta,active,high,1M-2M
+CUST00020,2023-05-03 23:13:34,1984-12-25,F,RM,Puente Alto,ACTIVE,medium,2M-4M
+CUST00021,2024-04-13 11:06:42,1977-01-30,F,Valparaiso,Vina del Mar,active,medium,0-500k
+CUST00022,2022-05-05 18:51:55,1996-02-14,F,Coquimbo,La Serena,active,medium,500k-1M
+CUST00023,2023-07-25 15:55:59,2001-07-03,F,Los Lagos,Puerto Montt,inactive,high,0-500k
+CUST00024,2025-01-12 10:59:48,1961-04-28,M,RM,Nunoa,active,medium,500k-1M
+CUST00025,2022-12-04 08:24:16,1993-12-31,M,Los Lagos,Puerto Montt,inactive,low,4M+
+CUST00026,2022-11-14 17:13:03,1977-01-13,M,Coquimbo,Coquimbo,active,medium,0-500k
+CUST00027,2024-09-03 13:03:32,2005-02-10,F,RM,Puente Alto,active,medium,500k-1M
+CUST00028,2025-03-12 09:39:05,1982-02-01,F,Los Lagos,Puerto Montt,active,medium,1M-2M
+CUST00029,2026-01-06 15:16:25,1988-03-09,F,Valparaiso,Quilpue,active,medium,0-500k
+CUST00030,2025-06-26 10:34:13,1968-12-20,M,RM,Maipu,active,low,0-500k
+CUST00031,2023-08-07 22:53:34,1974-02-25,M,Valparaiso,Vina del Mar,active,unclassified,4M+
+CUST00032,2025-02-09 11:56:08,1986-11-10,F,RM,Nunoa,blocked,medium,500k-1M
+CUST00033,2025-05-23 18:13:43,1978-11-23,M,Biobio,Talcahuano,active,medium,0-500k
+CUST00034,2024-05-17 09:00:21,1984-10-27,M,RM,Nunoa,active,low,2M-4M
+CUST00035,2025-02-22 11:04:56,1960-11-12,M,Antofagasta,Calama,active,low,1M-2M
+CUST00036,2024-05-30 09:19:23,1971-06-08,M,Antofagasta,Antofagasta,inactive,high,1M-2M
+CUST00037,2023-05-27 19:49:35,1969-03-22,M,Valparaiso,Quilpue,active,medium,500k-1M
+CUST00038,2022-12-29 08:11:47,1996-12-27,M,Valparaiso,Valparaiso,inactive,medium,500k-1M
+CUST00039,2025-12-07 20:55:02,1969-09-12,M,Biobio,Concepcion,active,high,2M-4M
+CUST00040,2023-04-12 08:42:12,1979-12-31,F,Biobio,Talcahuano,active,low,1M-2M
+CUST00041,2024-11-09 18:01:07,1995-11-09,M,Biobio,Los Angeles,active,medium,1M-2M
+CUST00042,2025-05-06 19:46:50,1998-12-26,F,RM,Santiago,active,medium,2M-4M
+CUST00043,2023-06-06 21:00:33,1963-12-25,M,Antofagasta,Antofagasta,active,medium,500k-1M
+CUST00044,2022-05-24 18:42:54,1989-08-15,F,Biobio,Talcahuano,blocked,medium,2M-4M
+CUST00045,2025-11-28 12:12:26,1986-07-11,M,Biobio,Talcahuano,active,medium,500k-1M
+CUST00046,2024-04-11 17:18:13,1960-01-14,F,Antofagasta,Calama,active,medium,2M-4M
+CUST00047,2025-10-15 23:50:57,1979-03-04,O,Los Lagos,Puerto Varas,active,medium,1M-2M
+CUST00048,2022-07-11 17:14:51,1981-01-26,F,Antofagasta,Calama,active,low,2M-4M
+CUST00049,2024-07-21 14:45:44,1997-03-07,F,Antofagasta,Antofagasta,active,low,0-500k
+CUST00050,2023-03-25 22:03:35,1975-10-12,F,RM,Maipu,inactive,medium,2M-4M
+CUST00051,2026-03-27 21:53:58,1999-09-15,M,Coquimbo,Coquimbo,blocked,medium,2M-4M
+CUST00052,2026-03-20 16:49:49,1982-03-07,M,Los Lagos,Puerto Varas,active,low,0-500k
+CUST00053,2023-04-26 18:20:57,1984-05-17,M,Coquimbo,Coquimbo,active,low,500k-1M
+CUST00054,2022-05-12 21:21:34,1997-03-21,F,Coquimbo,La Serena,active,high,2M-4M
+CUST00055,2026-04-17 23:00:22,1994-02-15,F,Antofagasta,Antofagasta,active,high,2M-4M
+CUST00056,2024-09-26 16:27:31,1979-09-08,F,Antofagasta,Antofagasta,active,medium,2M-4M
+CUST00057,2024-08-15 08:58:25,1971-06-14,M,Coquimbo,La Serena,active,low,2M-4M
+CUST00058,2023-01-08 16:24:20,1964-07-05,F,Valparaiso,Vina del Mar,active,high,2M-4M
+CUST00059,2023-06-01 23:01:47,1967-05-07,M,Biobio,Talcahuano,unknown,low,0-500k
+CUST00060,2026-03-25 15:12:53,1962-10-13,F,Coquimbo,La Serena,active,low,0-500k
+CUST00061,2024-08-10 19:10:38,1982-12-27,M,Antofagasta,Antofagasta,active,low,500k-1M
+CUST00062,2025-03-31 17:36:43,1962-04-21,M,Biobio,Concepcion,active,high,500k-1M
+CUST00063,2025-11-15 11:44:49,1981-10-14,F,RM,Puente Alto,active,high,4M+
+CUST00064,2024-12-27 19:04:32,1998-06-07,M,RM,Providencia,active,medium,2M-4M
+CUST00065,2024-01-12 12:27:11,2001-03-30,M,RM,Maipu,ACTIVE,low,4M+
+CUST00066,2024-06-11 18:54:15,1984-01-29,M,Los Lagos,Puerto Varas,active,high,500k-1M
+CUST00067,2025-06-03 18:01:31,1993-12-31,M,Los Lagos,Osorno,active,low,1M-2M
+CUST00068,2025-05-05 08:33:12,1984-10-13,F,Biobio,Talcahuano,active,medium,500k-1M
+CUST00069,2025-08-15 22:50:01,2004-01-13,F,Coquimbo,Coquimbo,active,medium,1M-2M
+CUST00070,2024-08-27 21:47:35,1990-11-03,F,Coquimbo,Coquimbo,active,low,1M-2M
+CUST00071,2026-01-17 18:07:47,1977-04-11,M,Valparaiso,Valparaiso,active,low,500k-1M
+CUST00072,2023-07-21 11:53:12,1985-05-22,F,Coquimbo,Coquimbo,active,low,4M+
+CUST00073,2022-04-04 17:44:08,1964-11-21,M,Valparaiso,Vina del Mar,active,low,0-500k
+CUST00074,2024-08-19 22:21:11,2002-12-12,O,Antofagasta,Calama,active,high,0-500k
+CUST00075,2024-10-04 09:09:09,1966-08-24,M,RM,Maipu,ACTIVE,low,500k-1M
+CUST00076,2026-04-15 15:49:33,1997-05-03,F,RM,Puente Alto,blocked,low,4M+
+CUST00077,2025-03-10 11:48:13,1965-05-27,M,Los Lagos,Puerto Varas,active,low,500k-1M
+CUST00078,2022-06-03 08:26:28,1974-01-16,M,Valparaiso,Quilpue,active,low,1M-2M
+CUST00079,2025-12-10 10:43:14,2000-09-24,M,Coquimbo,Coquimbo,inactive,medium,500k-1M
+CUST00080,2025-01-20 12:58:17,1980-03-02,M,Los Lagos,Puerto Montt,active,low,1M-2M
+CUST00081,2024-06-18 22:44:19,1971-02-26,M,Antofagasta,Calama,ACTIVE,medium,2M-4M
+CUST00082,2025-05-09 21:47:20,1963-07-30,M,Los Lagos,Puerto Montt,active,low,4M+
+CUST00083,2026-04-16 09:48:48,1984-03-06,F,Antofagasta,Antofagasta,active,medium,1M-2M
+CUST00084,2024-06-11 10:30:22,2004-02-11,F,Valparaiso,Quilpue,active,low,500k-1M
+CUST00085,2025-11-21 17:42:25,2004-06-13,M,Biobio,Talcahuano,active,medium,1M-2M
+CUST00086,2022-08-26 08:42:55,1996-04-05,M,Biobio,Talcahuano,active,low,1M-2M
+CUST00087,2025-07-04 09:13:17,1999-08-28,M,Antofagasta,Calama,ACTIVE,medium,2M-4M
+CUST00088,2025-07-14 13:19:35,1981-06-20,F,RM,Santiago,active,low,0-500k
+CUST00089,2025-08-19 23:59:45,1973-10-24,F,Los Lagos,Puerto Montt,active,medium,2M-4M
+CUST00090,2024-07-24 20:12:58,1972-12-22,M,Los Lagos,Puerto Montt,active,low,0-500k
+CUST00091,2023-11-28 16:52:00,2005-07-20,F,Biobio,Talcahuano,active,medium,2M-4M
+CUST00092,2025-01-08 19:21:35,2003-06-14,M,Valparaiso,Vina del Mar,active,high,500k-1M
+CUST00093,2025-03-17 15:54:49,1994-05-11,F,Coquimbo,La Serena,active,medium,2M-4M
+CUST00094,2025-08-28 23:02:08,1973-08-24,M,Los Lagos,Osorno,active,high,2M-4M
+CUST00095,2024-07-24 12:26:55,1961-05-17,M,RM,Puente Alto,active,medium,1M-2M
+CUST00096,2025-11-19 10:54:21,1995-08-29,M,Biobio,Los Angeles,inactive,low,1M-2M
+CUST00097,2025-01-13 10:15:40,1963-03-22,M,Coquimbo,Coquimbo,active,low,0-500k
+CUST00098,2026-04-07 22:10:44,1969-01-06,F,Los Lagos,Puerto Montt,active,low,0-500k
+CUST00099,2024-02-07 12:15:33,1998-08-21,F,Biobio,Talcahuano,active,low,500k-1M
+CUST00100,2024-02-23 23:58:37,1981-08-09,F,RM,Puente Alto,active,low,1M-2M
+CUST00101,2024-08-10 13:04:28,1985-10-21,O,Coquimbo,La Serena,unknown,low,2M-4M
+CUST00102,2024-07-24 14:24:54,1987-02-07,M,Coquimbo,Coquimbo,active,medium,4M+
+CUST00103,2023-08-28 20:17:00,1961-12-19,M,Biobio,Los Angeles,active,medium,0-500k
+CUST00104,2023-08-10 19:14:40,1980-08-23,F,Antofagasta,Calama,active,high,500k-1M
+CUST00105,2025-07-09 17:50:28,1963-07-15,F,Coquimbo,La Serena,active,low,1M-2M
+CUST00106,2024-04-30 14:08:50,1975-10-04,M,Biobio,Los Angeles,unknown,medium,1M-2M
+CUST00107,2024-09-13 18:51:07,1986-06-24,F,Valparaiso,Vina del Mar,active,high,500k-1M
+CUST00108,2025-02-15 10:50:25,1992-10-24,F,Coquimbo,Coquimbo,active,medium,1M-2M
+CUST00109,2025-07-31 11:43:14,1993-04-29,M,Antofagasta,Calama,active,high,1M-2M
+CUST00110,2025-08-19 22:58:44,1965-09-02,F,Antofagasta,Antofagasta,active,low,0-500k
+CUST00111,2022-08-26 15:56:34,1968-09-19,F,Biobio,Talcahuano,active,medium,4M+
+CUST00112,2026-03-01 21:41:06,1973-11-11,M,Los Lagos,Osorno,active,high,1M-2M
+CUST00113,2024-01-29 22:28:15,1979-06-29,M,RM,Nunoa,active,medium,4M+
+CUST00114,2022-05-05 16:12:07,1995-09-20,O,Coquimbo,Coquimbo,inactive,low,500k-1M
+CUST00115,2022-04-14 15:08:50,1989-12-02,M,Coquimbo,La Serena,active,high,500k-1M
+CUST00116,2023-04-23 12:50:57,1989-06-23,M,Antofagasta,Antofagasta,active,unclassified,500k-1M
+CUST00117,2022-12-24 08:08:00,1969-11-11,F,Antofagasta,Calama,inactive,medium,0-500k
+CUST00118,2022-04-18 21:33:07,1971-05-16,M,Valparaiso,Vina del Mar,active,high,4M+
+CUST00119,2024-07-14 15:39:02,2005-03-14,M,Antofagasta,Antofagasta,blocked,medium,1M-2M
+CUST00120,2022-03-05 23:54:25,1965-06-16,F,Los Lagos,Osorno,active,medium,2M-4M
+CUST00121,2023-10-22 10:08:17,1973-04-22,M,RM,Santiago,active,medium,2M-4M
+CUST00122,2024-07-18 21:06:50,2005-05-09,M,Antofagasta,Calama,inactive,medium,4M+
+CUST00123,2024-05-30 15:26:21,2000-07-05,M,Coquimbo,La Serena,active,medium,1M-2M
+CUST00124,2025-09-24 19:09:43,1982-11-13,M,Los Lagos,Puerto Varas,active,high,0-500k
+CUST00125,2026-03-05 12:35:03,1993-06-06,M,Los Lagos,Puerto Montt,active,low,0-500k
+CUST00126,2025-09-24 09:18:38,1997-12-10,F,Los Lagos,Puerto Varas,active,medium,500k-1M
+CUST00127,2023-04-05 19:54:35,1969-09-16,F,Coquimbo,Coquimbo,active,medium,2M-4M
+CUST00128,2025-06-01 08:11:17,1983-12-29,M,Antofagasta,Antofagasta,active,low,0-500k
+CUST00129,2025-03-05 10:09:47,1995-12-15,M,Valparaiso,Valparaiso,active,medium,500k-1M
+CUST00130,2024-07-18 13:23:19,1990-08-01,M,Los Lagos,Puerto Varas,active,medium,0-500k
+CUST00131,2022-11-19 10:17:28,1964-06-18,M,RM,Las Condes,active,medium,1M-2M
+CUST00132,2022-08-22 21:07:18,1990-12-19,M,Valparaiso,Quilpue,active,medium,1M-2M
+CUST00133,2024-03-20 08:13:19,1964-11-30,O,RM,Las Condes,active,high,1M-2M
+CUST00134,2022-01-16 21:11:08,2004-08-15,F,Biobio,Concepcion,active,medium,1M-2M
+CUST00135,2026-02-28 21:01:29,1963-10-18,M,RM,Maipu,inactive,medium,4M+
+CUST00136,2025-08-04 17:07:25,1997-06-21,F,Los Lagos,Osorno,active,high,4M+
+CUST00137,2024-01-12 21:54:06,1967-11-27,F,Los Lagos,Osorno,active,medium,2M-4M
+CUST00138,2023-11-27 18:49:10,1979-11-17,F,Biobio,Los Angeles,active,medium,500k-1M
+CUST00139,2026-01-29 15:06:09,1973-04-01,F,Biobio,Talcahuano,active,low,0-500k
+CUST00140,2024-10-08 22:43:59,2001-08-15,M,Valparaiso,Quilpue,active,unclassified,1M-2M
+CUST00141,2022-11-06 10:30:28,1999-06-15,M,Coquimbo,Coquimbo,inactive,medium,1M-2M
+CUST00142,2023-09-28 22:02:03,2001-06-04,F,Antofagasta,Antofagasta,active,medium,0-500k
+CUST00143,2024-08-05 22:58:51,1963-09-06,M,Antofagasta,Calama,active,medium,4M+
+CUST00144,2024-07-11 18:45:05,1969-04-14,M,Valparaiso,Valparaiso,active,low,2M-4M
+CUST00145,2024-12-06 19:23:58,1974-03-29,F,Los Lagos,Osorno,active,low,4M+
+CUST00146,2025-08-18 10:21:06,1990-01-08,M,RM,Nunoa,active,low,4M+
+CUST00147,2022-06-16 19:19:41,1972-09-08,M,Valparaiso,Vina del Mar,active,medium,0-500k
+CUST00148,2024-02-11 12:42:44,1989-06-20,M,Biobio,Los Angeles,active,medium,4M+
+CUST00149,2025-10-05 19:01:23,1997-12-26,F,RM,Nunoa,ACTIVE,low,2M-4M
+CUST00150,2022-10-09 10:18:54,1973-11-25,M,Valparaiso,Valparaiso,active,medium,4M+
+CUST00151,2023-11-21 20:09:10,1971-10-04,F,RM,Nunoa,active,medium,500k-1M
+CUST00152,2022-03-31 19:43:46,1996-11-10,F,Coquimbo,Coquimbo,active,low,2M-4M
+CUST00153,2023-05-05 23:57:53,1987-10-06,F,Valparaiso,Quilpue,active,medium,2M-4M
+CUST00154,2024-02-22 21:10:52,2005-02-12,F,Los Lagos,Puerto Varas,active,high,0-500k
+CUST00155,2024-01-31 11:18:05,1969-03-15,M,Coquimbo,Coquimbo,active,high,500k-1M
+CUST00156,2023-03-31 19:59:01,2000-06-21,F,Los Lagos,Puerto Montt,active,low,2M-4M
+CUST00157,2023-04-05 18:59:06,1962-07-12,M,RM,Providencia,active,high,500k-1M
+CUST00158,2024-08-25 23:28:39,1972-06-13,F,RM,Providencia,active,low,500k-1M
+CUST00159,2022-08-16 15:19:07,1985-11-05,F,Antofagasta,Calama,active,high,2M-4M
+CUST00160,2024-10-20 15:45:09,1961-06-22,F,RM,Santiago,active,low,4M+
+CUST00161,2025-09-22 19:04:33,1967-09-06,M,Los Lagos,Puerto Montt,inactive,medium,0-500k
+CUST00162,2022-03-31 19:16:47,1994-09-16,F,Los Lagos,Puerto Varas,inactive,low,0-500k
+CUST00163,2022-10-01 19:34:21,1963-12-23,M,Antofagasta,Calama,active,high,2M-4M
+CUST00164,2025-07-17 12:04:45,1976-05-08,M,Coquimbo,Coquimbo,active,low,0-500k
+CUST00165,2023-10-09 20:52:34,1987-10-26,M,Valparaiso,Valparaiso,active,medium,1M-2M
+CUST00166,2025-09-04 16:07:51,1989-10-11,F,Biobio,Concepcion,blocked,medium,2M-4M
+CUST00167,2024-10-13 19:59:51,2004-08-19,M,Biobio,Concepcion,inactive,medium,0-500k
+CUST00168,2023-01-05 18:06:05,1986-05-10,F,Los Lagos,Osorno,active,medium,2M-4M
+CUST00169,2024-06-28 22:02:46,1991-07-16,M,Valparaiso,Quilpue,active,unclassified,1M-2M
+CUST00170,2022-06-03 19:32:51,1996-06-10,M,Coquimbo,La Serena,active,low,4M+
+CUST00171,2022-03-13 10:15:49,1971-04-29,M,Coquimbo,Coquimbo,active,high,0-500k
+CUST00172,2025-10-22 19:23:28,2000-05-13,M,Antofagasta,Antofagasta,active,medium,2M-4M
+CUST00173,2023-07-25 11:01:47,1982-05-24,F,Biobio,Los Angeles,active,high,0-500k
+CUST00174,2025-12-12 14:39:18,2000-01-14,M,Biobio,Talcahuano,unknown,low,500k-1M
+CUST00175,2022-12-20 10:51:43,1999-12-07,O,RM,Maipu,unknown,medium,0-500k
+CUST00176,2023-09-07 13:50:23,1974-02-17,M,Antofagasta,Calama,active,low,500k-1M
+CUST00177,2022-02-23 19:29:51,1992-05-17,,Valparaiso,Vina del Mar,active,high,0-500k
+CUST00178,2026-01-08 21:49:26,2002-12-10,M,Biobio,Talcahuano,active,unclassified,0-500k
+CUST00179,2025-10-24 12:56:53,1990-11-28,M,Los Lagos,Puerto Varas,active,low,500k-1M
+CUST00180,2022-04-24 12:19:10,1971-02-20,F,Los Lagos,Osorno,ACTIVE,low,4M+
+CUST00181,2023-05-29 16:08:40,1977-08-11,F,Biobio,Concepcion,active,medium,500k-1M
+CUST00182,2022-12-17 09:52:55,1990-04-16,F,Antofagasta,Antofagasta,active,medium,4M+
+CUST00183,2023-03-08 08:31:56,1997-05-16,M,Biobio,Los Angeles,active,unclassified,2M-4M
+CUST00184,2024-04-11 22:04:44,1986-09-07,F,Valparaiso,Quilpue,active,medium,500k-1M
+CUST00185,2022-10-22 18:46:55,1988-01-16,F,Biobio,Los Angeles,active,high,4M+
+CUST00186,2023-10-16 22:07:17,1981-09-08,F,Antofagasta,Antofagasta,active,low,2M-4M
+CUST00187,2023-05-24 18:59:36,1974-04-30,M,Antofagasta,Calama,active,low,4M+
+CUST00188,2023-09-24 08:05:25,2004-08-14,M,Los Lagos,Puerto Varas,ACTIVE,low,1M-2M
+CUST00189,2023-07-31 23:18:34,2004-05-25,F,RM,Santiago,active,low,1M-2M
+CUST00190,2026-04-14 19:02:25,1996-03-05,F,Coquimbo,Coquimbo,active,low,1M-2M
+CUST00191,2024-10-29 16:52:39,2000-05-27,M,RM,Maipu,active,unclassified,2M-4M
+CUST00192,2025-02-16 12:12:38,1992-10-19,M,Biobio,Talcahuano,active,low,500k-1M
+CUST00193,2024-08-28 12:38:57,2000-12-30,M,Coquimbo,Coquimbo,active,medium,500k-1M
+CUST00194,2026-02-23 18:32:53,1986-11-05,M,Los Lagos,Osorno,active,medium,2M-4M
+CUST00195,2023-11-10 21:37:19,1969-10-31,M,RM,Providencia,active,medium,0-500k
+CUST00196,2023-06-28 09:37:30,1980-05-31,F,Antofagasta,Calama,active,medium,2M-4M
+CUST00197,2023-05-12 11:12:01,1962-10-31,F,Valparaiso,Quilpue,active,medium,500k-1M
+CUST00198,2025-06-06 09:45:08,2002-04-23,M,Los Lagos,Osorno,active,unclassified,2M-4M
+CUST00199,2023-10-05 22:58:34,1975-07-15,F,Antofagasta,Calama,active,high,1M-2M
+CUST00200,2023-01-29 16:35:19,1982-02-11,F,Antofagasta,Calama,unknown,low,1M-2M
+CUST00201,2025-11-14 18:30:22,2003-11-14,M,Coquimbo,La Serena,ACTIVE,medium,1M-2M
+CUST00202,2025-10-17 20:52:22,1994-01-23,O,RM,Puente Alto,inactive,low,1M-2M
+CUST00203,2023-12-11 16:47:30,1999-09-08,F,Coquimbo,La Serena,inactive,low,4M+
+CUST00204,2022-10-09 15:15:03,1969-10-19,M,Coquimbo,Coquimbo,active,medium,0-500k
+CUST00205,2023-11-08 11:43:49,2002-05-19,F,RM,Maipu,ACTIVE,unclassified,500k-1M
+CUST00206,2024-09-01 14:48:18,2002-11-01,F,Los Lagos,Osorno,active,high,0-500k
+CUST00207,2024-12-31 13:26:56,1963-05-07,M,Coquimbo,La Serena,ACTIVE,low,2M-4M
+CUST00208,2026-03-14 09:00:19,1985-12-20,M,Los Lagos,Puerto Montt,active,unclassified,1M-2M
+CUST00209,2025-01-17 12:54:32,2004-04-23,F,Los Lagos,Osorno,active,low,500k-1M
+CUST00210,2025-08-20 13:00:47,1983-01-30,F,Coquimbo,Coquimbo,active,medium,500k-1M
+CUST00211,2025-08-01 21:32:20,1996-05-18,F,Valparaiso,Quilpue,active,low,500k-1M
+CUST00212,2023-05-24 16:24:15,1960-08-11,F,Los Lagos,Puerto Varas,active,low,4M+
+CUST00213,2023-06-20 15:03:42,1992-04-03,F,Coquimbo,La Serena,active,medium,4M+
+CUST00214,2025-11-14 17:23:39,1970-07-14,F,Coquimbo,Coquimbo,ACTIVE,medium,2M-4M
+CUST00215,2024-05-01 14:48:15,2002-03-29,M,Coquimbo,Coquimbo,active,high,4M+
+CUST00216,2025-12-12 10:58:36,1992-06-15,F,Los Lagos,Osorno,inactive,high,500k-1M
+CUST00217,2022-12-03 22:07:43,1989-06-08,F,Antofagasta,Antofagasta,active,low,4M+
+CUST00218,2024-07-17 21:29:36,1971-11-02,F,Los Lagos,Puerto Montt,active,high,0-500k
+CUST00219,2022-01-07 10:02:27,1979-07-20,F,Los Lagos,Puerto Varas,active,unclassified,0-500k
+CUST00220,2023-08-11 13:49:08,1996-09-05,M,Los Lagos,Puerto Montt,unknown,medium,2M-4M
+CUST00221,2024-07-07 20:05:43,1993-11-12,O,Biobio,Talcahuano,blocked,low,1M-2M
+CUST00222,2025-01-05 12:46:14,1995-04-06,M,RM,Las Condes,active,unclassified,2M-4M
+CUST00223,2024-12-25 15:15:29,1994-01-10,F,Coquimbo,Coquimbo,active,high,0-500k
+CUST00224,2024-05-08 15:13:04,1961-05-27,F,RM,Nunoa,active,medium,0-500k
+CUST00225,2022-04-01 22:14:34,1996-02-02,F,Valparaiso,Quilpue,inactive,low,4M+
+CUST00226,2026-02-07 18:15:19,1988-08-10,M,Biobio,Concepcion,unknown,medium,2M-4M
+CUST00227,2022-05-05 21:35:31,1975-09-17,F,Biobio,Talcahuano,active,medium,2M-4M
+CUST00228,2025-11-27 21:09:19,1997-05-08,F,Antofagasta,Calama,active,medium,500k-1M
+CUST00229,2022-10-23 09:35:26,2001-07-16,O,Biobio,Los Angeles,active,low,500k-1M
+CUST00230,2023-11-08 22:54:23,1967-02-03,F,Biobio,Concepcion,active,low,1M-2M
+CUST00231,2025-05-23 10:12:51,1963-07-19,M,Los Lagos,Osorno,active,medium,2M-4M
+CUST00232,2023-09-13 14:59:12,1961-05-17,O,Valparaiso,Vina del Mar,active,unclassified,2M-4M
+CUST00233,2025-05-22 20:58:15,1978-05-07,M,Valparaiso,Quilpue,active,low,4M+
+CUST00234,2023-09-24 19:32:56,1983-06-19,M,Coquimbo,Coquimbo,active,unclassified,2M-4M
+CUST00235,2024-01-30 21:02:36,1988-01-27,M,Biobio,Concepcion,active,low,4M+
+CUST00236,2023-08-28 14:21:14,1973-09-03,F,Antofagasta,Calama,inactive,medium,1M-2M
+CUST00237,2026-01-21 22:10:46,2004-01-05,M,Biobio,Talcahuano,active,medium,2M-4M
+CUST00238,2025-08-07 09:53:54,1965-04-08,F,Valparaiso,Quilpue,inactive,low,0-500k
+CUST00239,2025-07-15 10:45:09,1980-10-05,F,Los Lagos,Puerto Montt,active,low,4M+
+CUST00240,2025-09-12 08:00:34,2003-10-08,M,Coquimbo,Coquimbo,active,medium,1M-2M
+CUST00241,2022-02-05 21:51:58,2005-01-20,F,Antofagasta,Calama,blocked,medium,500k-1M
+CUST00242,2024-12-14 19:17:50,1982-08-24,F,Valparaiso,Quilpue,active,medium,4M+
+CUST00243,2023-04-08 10:41:54,1986-11-29,M,Valparaiso,Quilpue,active,medium,2M-4M
+CUST00244,2022-04-25 13:05:31,1960-11-05,M,Antofagasta,Calama,active,low,0-500k
+CUST00245,2023-04-16 23:17:02,1978-12-19,M,Antofagasta,Antofagasta,active,low,4M+
+CUST00246,2023-01-03 08:13:37,1988-03-19,F,Antofagasta,Antofagasta,inactive,high,0-500k
+CUST00247,2025-02-28 20:43:57,1981-07-28,M,Biobio,Concepcion,active,medium,0-500k
+CUST00248,2022-04-20 21:14:53,1968-10-05,F,Antofagasta,Calama,active,medium,4M+
+CUST00249,2022-03-02 22:31:14,1984-07-09,F,Los Lagos,Puerto Varas,ACTIVE,medium,4M+
+CUST00250,2022-06-25 15:45:04,1986-07-01,F,Coquimbo,Coquimbo,active,medium,500k-1M
+CUST00251,2023-10-11 11:05:00,1992-05-11,O,Coquimbo,Coquimbo,active,high,0-500k
+CUST00252,2023-01-19 22:35:35,1998-08-31,M,Valparaiso,Valparaiso,active,low,4M+
+CUST00253,2025-05-09 20:00:18,1989-02-07,F,RM,Puente Alto,active,medium,4M+
+CUST00254,2024-12-03 20:10:08,1975-03-19,F,Valparaiso,Quilpue,active,low,500k-1M
+CUST00255,2024-05-12 23:50:04,1986-11-22,F,Los Lagos,Puerto Varas,ACTIVE,medium,2M-4M
+CUST00256,2024-07-26 12:19:00,1969-08-06,O,Antofagasta,Antofagasta,active,medium,1M-2M
+CUST00257,2024-05-31 17:20:38,1972-03-18,O,Los Lagos,Puerto Varas,active,low,2M-4M
+CUST00258,2026-02-14 15:20:24,2004-01-19,F,Biobio,Talcahuano,inactive,low,4M+
+CUST00259,2025-01-22 08:46:29,1976-02-21,O,Valparaiso,Quilpue,active,high,0-500k
+CUST00260,2024-10-19 17:15:16,1972-06-26,M,Los Lagos,Osorno,active,high,0-500k
+CUST00261,2024-09-08 21:34:02,1995-12-16,M,Los Lagos,Osorno,active,high,4M+
+CUST00262,2022-08-12 19:10:41,1982-04-09,M,Antofagasta,Antofagasta,active,medium,2M-4M
+CUST00263,2022-08-05 11:16:14,1960-12-11,M,Biobio,Talcahuano,active,medium,4M+
+CUST00264,2024-02-06 22:49:43,1995-02-02,M,Valparaiso,Vina del Mar,active,low,0-500k
+CUST00265,2023-08-29 10:07:53,1997-04-26,O,Los Lagos,Puerto Montt,active,low,2M-4M
+CUST00266,2024-09-16 23:06:28,1991-04-01,M,Valparaiso,Quilpue,active,low,0-500k
+CUST00267,2022-02-16 11:43:51,1990-10-11,F,Coquimbo,La Serena,unknown,low,500k-1M
+CUST00268,2023-11-09 22:14:51,1998-04-02,F,Antofagasta,Antofagasta,active,medium,2M-4M
+CUST00269,2026-02-19 22:37:27,1977-09-13,F,Los Lagos,Puerto Montt,active,low,0-500k
+CUST00270,2025-01-04 19:20:12,1976-10-09,F,Antofagasta,Antofagasta,active,high,4M+
+CUST00271,2025-05-07 20:37:07,1994-11-12,F,Coquimbo,Coquimbo,inactive,medium,1M-2M
+CUST00272,2025-10-08 18:07:15,1972-01-07,F,Antofagasta,Antofagasta,active,medium,4M+
+CUST00273,2025-05-06 20:27:11,1972-05-14,M,Los Lagos,Puerto Varas,active,high,500k-1M
+CUST00274,2024-09-29 12:11:20,1985-11-29,M,Antofagasta,Antofagasta,active,high,0-500k
+CUST00275,2023-02-04 23:26:43,1994-06-12,M,Los Lagos,Puerto Montt,active,medium,500k-1M
+CUST00276,2022-03-05 17:02:17,1979-10-14,F,RM,Puente Alto,active,high,4M+
+CUST00277,2025-01-30 11:36:07,2005-10-29,F,Coquimbo,Coquimbo,active,unclassified,4M+
+CUST00278,2024-06-22 21:06:47,1979-08-10,M,RM,Nunoa,active,low,0-500k
+CUST00279,2023-12-15 22:55:07,1967-10-21,M,Los Lagos,Puerto Varas,active,high,4M+
+CUST00280,2025-12-26 13:39:08,1998-05-31,M,Coquimbo,Coquimbo,inactive,high,4M+
+CUST00281,2023-07-30 18:45:18,1975-02-08,F,Biobio,Los Angeles,active,high,0-500k
+CUST00282,2022-05-02 12:44:55,1984-11-17,F,Valparaiso,Vina del Mar,active,low,500k-1M
+CUST00283,2024-09-29 16:40:26,1972-10-02,F,Coquimbo,Coquimbo,active,high,0-500k
+CUST00284,2026-03-16 19:29:31,1984-12-16,F,Los Lagos,Osorno,active,high,0-500k
+CUST00285,2025-07-24 10:50:34,1992-02-20,F,Coquimbo,Coquimbo,ACTIVE,high,2M-4M
+CUST00286,2023-08-04 12:36:54,1990-04-20,M,Biobio,Talcahuano,active,medium,0-500k
+CUST00287,2025-07-06 08:07:59,2001-03-25,M,RM,Santiago,active,low,2M-4M
+CUST00288,2022-09-28 13:55:59,1987-01-30,M,Valparaiso,Quilpue,active,low,0-500k
+CUST00289,2025-08-21 09:25:40,1974-11-06,F,Biobio,Los Angeles,active,low,0-500k
+CUST00290,2022-01-03 23:04:08,1979-02-23,M,Coquimbo,La Serena,active,medium,0-500k
+CUST00291,2022-09-04 12:30:04,1997-11-20,F,Coquimbo,Coquimbo,active,high,0-500k
+CUST00292,2023-09-05 20:49:52,1972-04-20,M,Biobio,Talcahuano,active,unclassified,500k-1M
+CUST00293,2025-02-27 13:28:22,1960-10-04,M,RM,Puente Alto,active,low,2M-4M
+CUST00294,2023-03-21 11:08:48,1967-10-11,F,Antofagasta,Calama,active,low,2M-4M
+CUST00295,2023-05-23 10:15:35,1984-11-05,M,Biobio,Concepcion,active,low,0-500k
+CUST00296,2023-02-25 14:47:25,2005-09-17,F,Coquimbo,Coquimbo,active,high,500k-1M
+CUST00297,2022-08-19 23:40:38,1981-08-17,F,Los Lagos,Puerto Varas,blocked,low,1M-2M
+CUST00298,2024-03-03 19:34:43,1997-10-03,F,Biobio,Concepcion,active,unclassified,0-500k
+CUST00299,2022-05-19 16:13:02,1961-03-27,M,RM,Puente Alto,ACTIVE,low,1M-2M
+CUST00300,2024-05-17 10:40:34,1996-02-02,M,Coquimbo,Coquimbo,active,low,0-500k
+CUST00301,2022-11-15 20:37:40,1989-04-24,M,Antofagasta,Antofagasta,active,medium,1M-2M
+CUST00302,2026-02-03 09:15:05,1981-05-29,M,Coquimbo,Coquimbo,active,medium,0-500k
+CUST00303,2026-02-27 11:00:45,1975-10-04,F,Biobio,Los Angeles,active,medium,1M-2M
+CUST00304,2022-12-08 12:47:49,1993-05-12,M,Antofagasta,Calama,active,low,0-500k
+CUST00305,2023-07-12 16:45:36,1965-09-23,M,Biobio,Talcahuano,active,medium,0-500k
+CUST00306,2022-12-08 13:16:49,1992-12-26,F,Los Lagos,Osorno,active,medium,500k-1M
+CUST00307,2022-04-01 15:02:30,1961-02-06,F,Coquimbo,La Serena,ACTIVE,low,0-500k
+CUST00308,2023-04-05 15:26:58,1988-11-13,M,Antofagasta,Calama,active,low,1M-2M
+CUST00309,2025-10-10 13:14:51,1964-09-21,M,RM,Puente Alto,active,medium,2M-4M
+CUST00310,2023-11-02 22:00:23,1967-10-01,F,Biobio,Talcahuano,active,low,4M+
+CUST00311,2024-01-25 14:46:57,2004-04-05,M,Valparaiso,Vina del Mar,inactive,low,2M-4M
+CUST00312,2025-01-14 08:21:00,1991-01-29,M,RM,Las Condes,active,medium,1M-2M
+CUST00313,2024-12-21 21:31:03,1981-05-14,O,RM,Las Condes,active,low,0-500k
+CUST00314,2024-04-25 22:47:05,1993-06-01,M,Valparaiso,Quilpue,active,medium,2M-4M
+CUST00315,2025-03-08 21:42:08,1965-08-02,F,RM,Puente Alto,active,low,2M-4M
+CUST00316,2023-10-14 16:14:04,2000-08-13,O,Coquimbo,Coquimbo,active,high,0-500k
+CUST00317,2022-12-03 22:20:26,2000-05-01,F,Valparaiso,Valparaiso,active,high,2M-4M
+CUST00318,2023-06-27 10:10:51,1970-10-04,M,Biobio,Talcahuano,inactive,medium,0-500k
+CUST00319,2022-10-31 15:22:25,1968-03-07,M,Valparaiso,Vina del Mar,active,low,500k-1M
+CUST00320,2024-07-15 11:29:06,1982-06-01,M,RM,Maipu,active,low,500k-1M
+CUST00321,2024-03-31 10:37:37,1993-05-24,F,Valparaiso,Valparaiso,inactive,low,0-500k
+CUST00322,2024-06-27 10:57:54,1971-07-22,M,Valparaiso,Quilpue,active,low,2M-4M
+CUST00323,2025-03-21 20:31:01,1998-11-10,F,RM,Las Condes,active,low,500k-1M
+CUST00324,2024-07-02 09:39:39,1973-05-02,M,Biobio,Talcahuano,active,medium,4M+
+CUST00325,2022-06-29 20:08:26,1985-02-05,F,Los Lagos,Puerto Montt,blocked,medium,4M+
+CUST00326,2025-12-31 23:34:50,1992-03-20,M,RM,Maipu,blocked,medium,2M-4M
+CUST00327,2022-02-23 15:01:57,1988-08-09,M,Biobio,Concepcion,active,high,2M-4M
+CUST00328,2026-04-20 13:06:15,1980-11-18,M,Antofagasta,Calama,active,high,0-500k
+CUST00329,2024-03-06 13:11:15,1991-10-31,M,Valparaiso,Quilpue,inactive,medium,4M+
+CUST00330,2025-12-05 12:36:12,1991-07-20,M,RM,Nunoa,inactive,unclassified,4M+
+CUST00331,2024-10-01 10:03:14,1963-05-28,M,Biobio,Concepcion,active,medium,1M-2M
+CUST00332,2022-09-25 13:58:51,1990-07-27,M,Antofagasta,Antofagasta,active,low,4M+
+CUST00333,2022-08-16 10:23:45,1992-09-25,O,Coquimbo,La Serena,active,low,1M-2M
+CUST00334,2022-11-19 23:41:20,1999-03-12,F,Biobio,Concepcion,ACTIVE,medium,4M+
+CUST00335,2025-09-25 20:19:46,1975-09-24,M,Biobio,Concepcion,active,medium,4M+
+CUST00336,2022-03-08 18:58:51,1976-05-02,O,Los Lagos,Osorno,active,medium,2M-4M
+CUST00337,2026-03-07 15:22:20,1966-12-24,F,Valparaiso,Vina del Mar,blocked,low,1M-2M
+CUST00338,2023-06-28 15:44:04,1978-10-23,F,Los Lagos,Puerto Montt,inactive,medium,0-500k
+CUST00339,2026-02-09 13:56:26,1997-08-25,M,Los Lagos,Puerto Varas,active,medium,0-500k
+CUST00340,2025-08-26 13:28:04,1980-03-27,M,Los Lagos,Osorno,active,low,1M-2M
+CUST00341,2023-12-02 20:10:46,1975-04-06,F,RM,Santiago,ACTIVE,unclassified,1M-2M
+CUST00342,2025-12-13 21:41:10,1962-10-12,M,Antofagasta,Calama,active,low,1M-2M
+CUST00343,2024-04-18 17:19:15,1983-10-19,F,Valparaiso,Valparaiso,active,medium,2M-4M
+CUST00344,2024-01-09 21:05:18,1960-05-05,M,Valparaiso,Valparaiso,active,medium,0-500k
+CUST00345,2022-12-16 10:30:54,1986-03-07,F,RM,Las Condes,inactive,medium,1M-2M
+CUST00346,2025-01-19 13:23:56,1994-10-07,F,RM,Nunoa,active,low,2M-4M
+CUST00347,2023-04-09 09:09:48,1984-02-04,M,Los Lagos,Puerto Varas,active,medium,4M+
+CUST00348,2023-04-11 20:52:33,1965-06-21,F,Los Lagos,Osorno,active,high,2M-4M
+CUST00349,2024-09-02 10:25:57,1986-10-23,M,Antofagasta,Antofagasta,active,medium,4M+
+CUST00350,2022-09-04 13:10:13,2000-04-14,M,Antofagasta,Antofagasta,active,medium,2M-4M
+CUST00351,2022-10-30 18:58:46,1983-02-19,M,Valparaiso,Quilpue,active,low,2M-4M
+CUST00352,2023-07-20 08:50:44,2001-02-06,M,Antofagasta,Calama,active,medium,2M-4M
+CUST00353,2025-03-06 11:36:49,1968-12-27,F,Valparaiso,Valparaiso,active,medium,1M-2M
+CUST00354,2024-02-24 23:02:11,2003-07-25,F,Los Lagos,Puerto Varas,active,medium,2M-4M
+CUST00355,2023-11-10 09:47:30,1981-04-24,M,RM,Maipu,blocked,low,1M-2M
+CUST00356,2024-10-03 15:08:19,1968-10-23,O,Biobio,Talcahuano,active,high,1M-2M
+CUST00357,2025-05-23 14:28:13,1968-01-04,M,Coquimbo,Coquimbo,active,medium,4M+
+CUST00358,2024-11-21 10:19:45,1974-04-06,M,Biobio,Concepcion,active,high,4M+
+CUST00359,2023-01-30 09:15:02,1978-01-03,F,RM,Las Condes,blocked,medium,1M-2M
+CUST00360,2024-10-31 11:43:01,1995-08-12,F,Biobio,Talcahuano,active,medium,2M-4M
+CUST00361,2023-12-07 16:47:53,1974-09-02,M,Antofagasta,Calama,active,low,500k-1M
+CUST00362,2023-03-30 14:17:41,1980-03-12,F,Antofagasta,Antofagasta,active,high,0-500k
+CUST00363,2025-08-18 08:14:16,1975-07-16,M,Los Lagos,Puerto Montt,ACTIVE,medium,1M-2M
+CUST00364,2023-12-16 16:13:29,2001-03-06,F,Los Lagos,Puerto Varas,active,medium,4M+
+CUST00365,2024-11-13 17:19:43,1993-07-28,F,RM,Santiago,active,unclassified,1M-2M
+CUST00366,2025-09-05 14:09:33,1986-10-21,M,Biobio,Talcahuano,blocked,high,4M+
+CUST00367,2023-10-17 08:41:31,1972-07-21,,Los Lagos,Osorno,active,medium,2M-4M
+CUST00368,2025-04-09 18:46:45,1977-01-14,F,Coquimbo,La Serena,active,high,1M-2M
+CUST00369,2022-12-15 17:06:30,1976-04-01,F,Antofagasta,Calama,active,high,500k-1M
+CUST00370,2025-09-02 15:22:14,1968-01-05,M,Coquimbo,Coquimbo,active,high,1M-2M
+CUST00371,2025-04-14 22:54:07,1986-05-19,M,Biobio,Talcahuano,inactive,medium,4M+
+CUST00372,2023-02-03 11:55:43,2004-11-24,F,RM,Maipu,active,low,500k-1M
+CUST00373,2023-12-03 22:09:20,1996-09-16,M,Valparaiso,Valparaiso,active,low,1M-2M
+CUST00374,2023-10-04 08:28:17,1965-03-15,F,Coquimbo,La Serena,active,medium,500k-1M
+CUST00375,2022-09-23 21:25:27,1998-11-28,O,Los Lagos,Puerto Montt,active,low,500k-1M
+CUST00376,2022-01-29 14:01:43,1988-11-27,F,Coquimbo,Coquimbo,active,low,1M-2M
+CUST00377,2022-07-30 17:10:04,1994-05-30,M,Biobio,Concepcion,active,low,4M+
+CUST00378,2024-06-07 18:57:31,1972-01-02,F,Antofagasta,Calama,active,high,2M-4M
+CUST00379,2023-04-05 14:46:01,1971-10-09,M,RM,Las Condes,active,low,0-500k
+CUST00380,2023-06-08 09:42:06,1964-05-11,M,Los Lagos,Osorno,active,medium,2M-4M
+CUST00381,2022-09-11 23:44:09,1982-09-03,F,Los Lagos,Puerto Varas,active,low,2M-4M
+CUST00382,2025-09-18 12:26:53,1984-03-21,M,Coquimbo,La Serena,active,medium,1M-2M
+CUST00383,2024-10-16 14:49:16,1977-10-27,M,RM,Santiago,unknown,low,2M-4M
+CUST00384,2022-03-22 14:44:59,2004-07-12,M,Biobio,Concepcion,active,low,0-500k
+CUST00385,2025-10-02 12:05:49,2004-04-29,M,RM,Puente Alto,active,low,1M-2M
+CUST00386,2024-07-24 16:29:03,1986-07-23,F,Coquimbo,La Serena,active,low,1M-2M
+CUST00387,2023-10-03 11:06:54,1998-03-21,M,Biobio,Los Angeles,active,high,500k-1M
+CUST00388,2024-06-15 10:23:52,1984-01-26,F,Biobio,Talcahuano,active,medium,2M-4M
+CUST00389,2025-11-13 21:41:56,2002-11-27,M,Biobio,Talcahuano,active,medium,0-500k
+CUST00390,2024-05-02 22:11:39,2003-04-21,F,Valparaiso,Valparaiso,active,low,500k-1M
+CUST00391,2022-08-20 22:02:04,1996-11-23,F,Los Lagos,Puerto Varas,active,medium,4M+
+CUST00392,2025-10-03 11:27:42,1990-05-08,M,Coquimbo,La Serena,active,medium,2M-4M
+CUST00393,2025-06-09 08:41:59,1964-11-23,F,Valparaiso,Quilpue,inactive,high,500k-1M
+CUST00394,2023-10-19 18:17:03,1981-08-11,M,RM,Maipu,active,low,500k-1M
+CUST00395,2024-06-28 10:54:31,2000-03-14,F,RM,Maipu,active,medium,0-500k
+CUST00396,2024-04-24 08:52:05,1963-03-20,M,RM,Maipu,ACTIVE,medium,4M+
+CUST00397,2025-09-02 18:23:52,2000-12-05,F,Antofagasta,Antofagasta,active,medium,4M+
+CUST00398,2026-01-07 22:07:06,1992-08-04,M,Antofagasta,Calama,active,low,1M-2M
+CUST00399,2025-12-08 09:57:10,1969-07-15,M,Antofagasta,Calama,inactive,medium,2M-4M
+CUST00400,2025-06-05 14:07:59,1977-07-29,M,RM,Providencia,active,high,500k-1M
+CUST00401,2022-08-09 09:59:40,1997-03-08,M,Coquimbo,Coquimbo,active,high,2M-4M
+CUST00402,2025-04-21 12:31:00,2005-03-26,M,Los Lagos,Osorno,active,high,4M+
+CUST00403,2022-12-29 12:06:24,1975-07-31,M,Los Lagos,Osorno,active,low,2M-4M
+CUST00404,2025-11-19 16:25:21,1982-04-09,O,Los Lagos,Osorno,active,low,2M-4M
+CUST00405,2025-12-07 14:12:13,1988-02-29,M,Antofagasta,Calama,active,low,500k-1M
+CUST00406,2024-10-28 11:48:22,1988-12-02,M,Coquimbo,La Serena,active,high,2M-4M
+CUST00407,2024-05-15 11:01:24,1961-02-22,F,Coquimbo,Coquimbo,active,low,500k-1M
+CUST00408,2023-05-29 09:44:50,1973-02-19,F,Biobio,Los Angeles,active,low,2M-4M
+CUST00409,2025-10-15 20:15:32,1980-02-15,M,RM,Puente Alto,inactive,low,0-500k
+CUST00410,2024-05-03 09:00:47,1988-01-19,F,Los Lagos,Puerto Varas,active,high,2M-4M
+CUST00411,2025-12-14 14:49:46,1992-12-28,O,Valparaiso,Quilpue,active,low,0-500k
+CUST00412,2026-02-14 20:02:27,1970-09-15,F,Valparaiso,Valparaiso,active,low,1M-2M
+CUST00413,2024-08-13 09:09:59,1973-11-20,F,RM,Providencia,active,high,4M+
+CUST00414,2024-10-01 10:50:45,1992-02-15,F,Coquimbo,Coquimbo,active,low,0-500k
+CUST00415,2024-05-01 10:22:14,1996-03-11,M,Antofagasta,Antofagasta,active,low,1M-2M
+CUST00416,2024-12-22 08:07:42,2002-08-08,F,Valparaiso,Quilpue,active,medium,4M+
+CUST00417,2025-10-29 20:58:50,1988-10-16,O,Valparaiso,Valparaiso,active,medium,1M-2M
+CUST00418,2024-02-07 22:31:02,2005-08-22,F,RM,Puente Alto,active,low,0-500k
+CUST00419,2025-01-06 10:13:42,1960-08-28,M,RM,Las Condes,active,medium,0-500k
+CUST00420,2025-12-10 10:47:43,1999-01-17,F,Valparaiso,Quilpue,active,low,0-500k
+CUST00421,2022-12-31 10:36:52,1982-08-07,F,RM,Santiago,active,low,2M-4M
+CUST00422,2022-02-04 11:34:00,1994-12-11,M,Los Lagos,Puerto Varas,active,high,4M+
+CUST00423,2022-05-29 11:18:50,1992-02-03,M,RM,Nunoa,active,low,2M-4M
+CUST00424,2025-09-15 23:10:34,1962-10-06,F,Los Lagos,Puerto Varas,active,high,4M+
+CUST00425,2022-10-23 19:00:35,1986-09-27,M,Biobio,Los Angeles,active,low,4M+
+CUST00426,2025-01-05 17:13:47,1967-08-21,M,Antofagasta,Calama,active,low,4M+
+CUST00427,2023-01-12 16:12:07,1979-10-22,F,Valparaiso,Valparaiso,inactive,high,4M+
+CUST00428,2025-01-30 17:42:04,1966-07-24,F,Los Lagos,Osorno,active,medium,1M-2M
+CUST00429,2025-10-06 11:18:39,1981-01-15,F,Biobio,Concepcion,active,medium,1M-2M
+CUST00430,2025-11-21 19:51:20,1973-09-02,O,Antofagasta,Calama,active,low,500k-1M
+CUST00431,2023-07-21 12:43:46,1992-04-01,F,Coquimbo,Coquimbo,active,medium,1M-2M
+CUST00432,2022-08-11 10:53:17,1975-10-08,M,Los Lagos,Osorno,active,medium,1M-2M
+CUST00433,2026-01-29 08:54:32,1966-10-06,M,Coquimbo,La Serena,inactive,medium,4M+
+CUST00434,2025-02-03 23:41:49,1983-05-19,F,Valparaiso,Valparaiso,active,high,4M+
+CUST00435,2022-10-02 10:25:23,2001-09-09,M,Coquimbo,Coquimbo,active,high,4M+
+CUST00436,2026-03-31 22:10:11,1972-08-04,M,Coquimbo,La Serena,active,high,500k-1M
+CUST00437,2024-01-05 15:48:31,1963-08-17,F,Coquimbo,Coquimbo,active,low,500k-1M
+CUST00438,2024-03-05 22:56:02,2002-02-19,F,Antofagasta,Calama,active,low,4M+
+CUST00439,2026-02-28 13:24:41,1983-08-16,F,Coquimbo,Coquimbo,active,high,0-500k
+CUST00440,2024-02-10 20:22:52,1979-12-30,M,Antofagasta,Calama,active,medium,4M+
+CUST00441,2022-10-12 13:14:04,1999-06-19,M,RM,Puente Alto,active,low,500k-1M
+CUST00442,2026-01-09 15:26:51,1970-08-13,F,Biobio,Los Angeles,active,medium,2M-4M
+CUST00443,2022-11-27 08:15:02,1996-11-11,F,Valparaiso,Quilpue,active,low,4M+
+CUST00444,2022-10-28 13:16:59,1965-01-06,F,RM,Puente Alto,ACTIVE,medium,4M+
+CUST00445,2026-01-13 10:13:28,1985-06-06,M,Coquimbo,La Serena,active,medium,500k-1M
+CUST00446,2022-10-20 16:10:46,1976-04-25,M,Los Lagos,Osorno,ACTIVE,medium,0-500k
+CUST00447,2024-02-29 11:01:12,1971-11-11,M,Valparaiso,Vina del Mar,blocked,medium,500k-1M
+CUST00448,2022-12-30 09:56:50,2002-09-10,M,Antofagasta,Antofagasta,active,low,500k-1M
+CUST00449,2025-10-21 21:23:55,1998-09-17,F,Antofagasta,Antofagasta,active,low,2M-4M
+CUST00450,2025-04-21 21:08:16,1968-10-06,M,Los Lagos,Puerto Varas,active,high,1M-2M
+CUST00451,2023-06-12 08:45:47,1976-12-15,M,Antofagasta,Calama,active,low,0-500k
+CUST00452,2023-02-25 21:23:06,1988-05-04,F,Los Lagos,Osorno,active,low,4M+
+CUST00453,2024-01-19 20:48:13,1984-09-20,F,Los Lagos,Osorno,inactive,medium,1M-2M
+CUST00454,2023-06-04 19:49:45,1987-07-06,F,Antofagasta,Calama,active,high,0-500k
+CUST00455,2024-07-03 11:13:32,1974-07-07,F,Coquimbo,La Serena,active,medium,0-500k
+CUST00456,2025-07-26 10:52:09,1960-06-22,M,Valparaiso,Vina del Mar,active,low,1M-2M
+CUST00457,2022-06-13 20:59:25,1963-05-22,M,Valparaiso,Vina del Mar,active,medium,4M+
+CUST00458,2025-08-04 22:00:12,2004-05-08,M,RM,Las Condes,ACTIVE,medium,500k-1M
+CUST00459,2024-11-11 13:43:02,1980-10-13,F,RM,Puente Alto,active,unclassified,0-500k
+CUST00460,2023-12-25 20:37:12,1995-06-14,M,Biobio,Talcahuano,active,low,0-500k
+CUST00461,2026-01-27 19:52:17,1991-03-25,F,Antofagasta,Calama,ACTIVE,medium,2M-4M
+CUST00462,2023-06-19 21:32:06,1975-09-14,M,Antofagasta,Antofagasta,active,low,0-500k
+CUST00463,2025-01-06 22:24:36,1982-06-10,M,Antofagasta,Calama,active,low,2M-4M
+CUST00464,2025-04-16 23:07:16,1962-06-15,F,Coquimbo,Coquimbo,active,unclassified,500k-1M
+CUST00465,2023-12-25 16:15:18,1960-11-14,F,Biobio,Talcahuano,active,high,0-500k
+CUST00466,2024-09-02 19:13:57,1988-02-27,M,Antofagasta,Antofagasta,active,medium,500k-1M
+CUST00467,2023-02-13 15:55:16,1981-01-25,F,Los Lagos,Osorno,active,low,4M+
+CUST00468,2022-08-07 10:43:42,1970-10-03,M,Biobio,Concepcion,active,high,0-500k
+CUST00469,2025-06-25 23:57:56,1988-04-18,M,Los Lagos,Puerto Varas,inactive,medium,4M+
+CUST00470,2023-03-31 09:33:51,1971-07-04,F,Biobio,Talcahuano,ACTIVE,low,1M-2M
+CUST00471,2022-12-24 11:44:33,2001-01-06,F,Los Lagos,Osorno,active,low,500k-1M
+CUST00472,2022-07-26 19:39:55,1989-03-12,F,Los Lagos,Osorno,active,low,2M-4M
+CUST00473,2024-01-20 23:27:13,1976-07-01,F,Antofagasta,Calama,active,low,2M-4M
+CUST00474,2023-01-04 15:52:06,1971-10-07,M,Biobio,Talcahuano,inactive,medium,2M-4M
+CUST00475,2026-02-21 23:51:00,1973-06-01,F,Valparaiso,Valparaiso,active,unclassified,4M+
+CUST00476,2024-09-23 16:35:54,1986-12-01,M,Antofagasta,Calama,active,medium,0-500k
+CUST00477,2024-09-02 22:47:21,1968-08-21,F,Valparaiso,Vina del Mar,active,medium,1M-2M
+CUST00478,2024-04-23 19:55:43,1970-11-16,O,Biobio,Concepcion,active,medium,4M+
+CUST00479,2023-12-29 23:49:47,1989-03-01,F,Valparaiso,Vina del Mar,active,medium,2M-4M
+CUST00480,2022-12-10 21:40:39,1990-04-08,M,Coquimbo,La Serena,inactive,low,500k-1M
+CUST00481,2023-10-05 17:45:17,1988-06-05,M,Biobio,Concepcion,active,high,1M-2M
+CUST00482,2024-04-27 13:54:01,1975-01-04,F,Coquimbo,Coquimbo,active,low,0-500k
+CUST00483,2024-03-24 11:04:59,1969-03-29,M,Valparaiso,Valparaiso,active,low,2M-4M
+CUST00484,2022-08-01 12:05:41,1983-07-19,M,Antofagasta,Antofagasta,active,low,1M-2M
+CUST00485,2022-09-16 13:01:02,1971-10-11,M,Los Lagos,Osorno,inactive,low,2M-4M
+CUST00486,2023-07-12 12:44:34,1999-11-28,F,Los Lagos,Osorno,active,medium,4M+
+CUST00487,2025-08-03 19:30:34,1987-10-12,F,Los Lagos,Osorno,active,low,2M-4M
+CUST00488,2023-09-14 08:33:52,1960-12-11,M,Biobio,Concepcion,active,low,4M+
+CUST00489,2024-10-04 17:00:49,2002-10-19,F,RM,Nunoa,active,low,0-500k
+CUST00490,2023-01-22 21:25:15,1996-12-08,F,Antofagasta,Calama,active,low,2M-4M
+CUST00491,2022-06-12 15:33:48,1997-11-17,M,Valparaiso,Vina del Mar,active,medium,1M-2M
+CUST00492,2026-03-02 21:12:54,1984-02-12,F,Biobio,Los Angeles,active,low,2M-4M
+CUST00493,2023-07-12 14:20:01,2004-02-20,F,Antofagasta,Calama,ACTIVE,low,0-500k
+CUST00494,2022-09-14 08:14:05,1999-05-02,F,Biobio,Talcahuano,active,low,1M-2M
+CUST00495,2024-08-07 18:05:53,1962-11-05,M,Los Lagos,Puerto Varas,active,low,2M-4M
+CUST00496,2024-08-20 14:57:53,1976-04-16,F,RM,Puente Alto,active,low,500k-1M
+CUST00497,2023-05-22 14:29:47,1963-01-03,M,Los Lagos,Puerto Varas,active,unclassified,2M-4M
+CUST00498,2023-10-02 13:40:46,1988-12-25,F,Los Lagos,Osorno,ACTIVE,medium,1M-2M
+CUST00499,2023-09-04 19:56:03,1977-10-29,M,Los Lagos,Osorno,active,low,2M-4M
+CUST00500,2022-12-09 11:25:50,1984-10-08,F,Biobio,Concepcion,ACTIVE,medium,2M-4M
+CUST00020,2023-05-03 23:13:34,1984-12-25,F,RM,Puente Alto,ACTIVE,medium,2M-4M
+,2026-02-12 10:15:00,1991-08-01,F,RM,Santiago,active,medium,1M-2M
+CUST99999,2030-01-01 00:00:00,2012-01-01,M,RM,Santiago,active,low,500k-1M

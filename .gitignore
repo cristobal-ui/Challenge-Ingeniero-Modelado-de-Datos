@@ -1,0 +1,8 @@
+# Base generada por el runner (reproducible con `python run_local.py`)
+challenge.duckdb
+challenge.duckdb.wal
+
+# Python
+__pycache__/
+*.pyc
+.venv/

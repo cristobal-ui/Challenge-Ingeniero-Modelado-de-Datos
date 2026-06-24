@@ -1,0 +1,4 @@
+campaign_id,campaign_name,start_date,end_date,campaign_type,target_product
+CMP2026053CSI,3 cuotas sin interes mayo 2026,2026-05-05,2026-05-25,installments,credit_card
+CMP202604CASHBACK,cashback comercios seleccionados abril 2026,2026-04-10,2026-04-20,cashback,credit_card
+CMP_BAD_DATES,campana con fechas invalidas,2026-06-10,2026-06-01,installments,credit_card
