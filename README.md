@@ -58,6 +58,7 @@ challenge_ia_chile/
 │   │   │   └── _staging__models.yml    # documentación + tests de staging
 │   │   └── marts/              # dimensiones, hechos y mart de negocio
 │   │       └── _marts__models.yml      # documentación + tests de marts
+│   ├── macros/cross_db.sql     # macros de dialecto: mismo modelo en DuckDB y BigQuery
 │   ├── analyses/               # consultas de negocio (parametrizadas con var)
 │   ├── tests/                  # test singular de unicidad compuesta del mart
 │   ├── dbt_project.yml
@@ -266,11 +267,13 @@ fila (ver §7). La calidad se *mide*, no se esconde.
 > Detalle función-por-función y DDL de ejemplo en
 > [`docs/bigquery_migration.md`](docs/bigquery_migration.md).
 
-- **Dialecto SQL.** Sustituir las funciones DuckDB por sus equivalentes BQ:
-  `TRY_CAST` → `SAFE_CAST`; `DATE_DIFF('year', a, b)` → `DATE_DIFF(b, a, YEAR)`;
-  `BOOL_OR` → `LOGICAL_OR`. La estructura por capas no cambia.
-- **Orquestación con dbt o Dataform.** Capas como modelos versionados, los controles de
-  calidad como `tests`/`assertions`, y `ref()`/`source()` para el DAG y el linaje.
+- **Dialecto SQL: ya portable.** Las funciones que difieren entre motores están
+  encapsuladas en macros (`dbt/macros/cross_db.sql`): el mismo modelo corre en DuckDB
+  (`dbt build`) o BigQuery (`dbt build --target bq`) sin reescribir SQL —
+  `TRY_CAST`↔`SAFE_CAST`, `BOOL_OR`↔`LOGICAL_OR`, `DATE_DIFF` con su orden de argumentos.
+  En producción solo se añade el `target` de BigQuery al perfil.
+- **Orquestación con dbt (ya implementada).** Capas como modelos versionados, controles de
+  calidad como `tests` declarativos, y `ref()`/`source()` para el DAG y el linaje.
 - **Particionado y clustering.** `fact_transaction` particionada por `transaction_day`
   y *clustered* por `customer_id`/`merchant_id`; eventos por `event_day`. Reduce costo
   y escaneo en consultas por rango de fechas.

@@ -10,7 +10,7 @@ select
     c.created_at                                        as customer_created_at,
     c.birth_date,
     case when c.birth_date is not null
-         then date_diff('year', c.birth_date, current_date) end as age_years,
+         then {{ csi_year_diff('c.birth_date', 'current_date') }} end as age_years,
     count(distinct cr.card_id)                          as num_cards,
     c.is_future_created
 from {{ ref('stg_customers') }} c

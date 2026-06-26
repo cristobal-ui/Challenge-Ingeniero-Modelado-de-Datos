@@ -6,10 +6,10 @@ with src as (
         trim(customer_id)                           as customer_id,
         trim(card_id)                               as card_id,
         trim(merchant_id)                           as merchant_id,
-        try_cast(transaction_date as timestamp)     as transaction_date,
-        try_cast(amount as decimal(18,2))           as amount,
+        {{ csi_safe_cast('transaction_date', 'timestamp') }}   as transaction_date,
+        {{ csi_safe_cast('amount', 'numeric') }}           as amount,
         upper(trim(currency))                       as currency,
-        try_cast(installments as integer)           as installments,
+        {{ csi_safe_cast('installments', 'integer') }}     as installments,
         lower(trim(transaction_status))             as transaction_status,
         lower(trim(transaction_type))               as transaction_type
     from {{ source('raw', 'raw_transactions') }}

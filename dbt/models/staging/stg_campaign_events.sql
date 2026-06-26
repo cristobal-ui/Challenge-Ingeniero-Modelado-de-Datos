@@ -5,7 +5,7 @@ with src as (
         trim(event_id)                      as event_id,
         trim(campaign_id)                   as campaign_id,
         trim(customer_id)                   as customer_id,
-        try_cast(event_date as timestamp)   as event_date,
+        {{ csi_safe_cast('event_date', 'timestamp') }}   as event_date,
         lower(trim(event_type))             as event_type,
         lower(trim(channel))                as channel
     from {{ source('raw', 'raw_campaign_events') }}

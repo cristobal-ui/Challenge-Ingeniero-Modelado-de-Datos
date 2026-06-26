@@ -2,33 +2,44 @@
 
 La solución corre en **DuckDB** localmente. La lógica de modelado (capas,
 granos, joins, reglas de negocio) es idéntica en BigQuery; lo único que cambia
-es el **dialecto** y la **capa de materialización/carga**. Abajo, el detalle
-concreto de qué reemplazar.
+es el **dialecto** y la **capa de materialización/carga**.
 
-## 1. Sustituciones de dialecto SQL
+## 1. Sustituciones de dialecto SQL — ya automatizadas por macros
 
-| Uso en DuckDB (este repo) | Equivalente en BigQuery | Dónde aparece |
-|---|---|---|
-| `TRY_CAST(x AS TIMESTAMP)` | `SAFE_CAST(x AS TIMESTAMP)` | todo `staging` |
-| `TRY_CAST(x AS DATE)` | `SAFE_CAST(x AS DATE)` | `stg_customers`, `stg_campaigns` |
-| `TRY_CAST(x AS DECIMAL(18,2))` | `SAFE_CAST(x AS NUMERIC)` | `stg_transactions` |
-| `DATE_DIFF('year', a, b)` (orden: unidad, inicio, fin) | `DATE_DIFF(b, a, YEAR)` (orden: fin, inicio, unidad) | `dim_customer.age_years` |
-| `read_csv(..., all_varchar=true)` | `bq load` / external table sobre GCS (no es SQL) | `00_sources/raw_sources.sql` |
-| `CAST(ts AS DATE)` | igual (`DATE(ts)` también válido) | `fact_*` |
-| `QUALIFY ROW_NUMBER() OVER (...)` | **igual** (BigQuery soporta `QUALIFY`) | dedup en `staging` |
-| `BOOL_OR(cond)` | `LOGICAL_OR(cond)` | `mart_campaign_conversion` |
-| `CURRENT_TIMESTAMP` / `CURRENT_DATE` | iguales | banderas de fecha futura |
+El SQL es **portable**: las funciones que difieren entre DuckDB y BigQuery están
+encapsuladas en macros (`dbt/macros/cross_db.sql`) que emiten el dialecto correcto
+según `target.type`. **El mismo modelo corre en ambos** sin reescribir SQL:
 
-> El resto (CTEs, `LEFT JOIN`, `BETWEEN`, `SUM/COUNT`, `USING`, `NULLIF`,
-> `COALESCE`) es ANSI y no cambia.
+```bash
+dbt build --profiles-dir .                 # target duckdb (local) -> try_cast, bool_or, ...
+dbt build --profiles-dir . --target bq     # target bigquery       -> safe_cast, logical_or, ...
+```
+
+Qué resuelve cada macro:
+
+| Macro | DuckDB emite | BigQuery emite | Dónde se usa |
+|---|---|---|---|
+| `csi_safe_cast(x, 'timestamp'/'date')` | `TRY_CAST(x AS TIMESTAMP/DATE)` | `SAFE_CAST(x AS TIMESTAMP/DATE)` | todo `staging` |
+| `csi_safe_cast(x, 'numeric')` | `TRY_CAST(x AS DECIMAL(18,2))` | `SAFE_CAST(x AS NUMERIC)` | `stg_transactions` |
+| `csi_safe_cast(x, 'integer')` | `TRY_CAST(x AS INTEGER)` | `SAFE_CAST(x AS INT64)` | `stg_transactions` |
+| `csi_bool_or(cond)` | `BOOL_OR(cond)` | `LOGICAL_OR(cond)` | `mart_campaign_conversion` |
+| `csi_year_diff(a, b)` | `DATE_DIFF('year', a, b)` | `DATE_DIFF(b, a, YEAR)` | `dim_customer.age_years` |
+
+Lo que **ya es idéntico** en ambos motores y no necesita macro: `QUALIFY ROW_NUMBER()`,
+`CAST(ts AS DATE)`, `CURRENT_TIMESTAMP` / `CURRENT_DATE`, y todo lo ANSI (CTEs,
+`LEFT JOIN`, `BETWEEN`, `SUM/COUNT`, `USING`, `NULLIF`, `COALESCE`).
+
+> Única pieza que sigue siendo específica del adaptador: la **carga de sources**
+> (`read_csv(...)` en DuckDB) → ver §2. Es la capa de ingesta, no de transformación.
 
 ## 2. Capa de carga (sources)
 
-- En local: `read_csv(...)` materializa los CSV como tablas.
+- En local: el source de dbt (`models/staging/_staging__sources.yml`) lee los
+  CSV con `read_csv(..., all_varchar=true)` vía `external_location` de dbt-duckdb.
 - En BigQuery: las tablas `raw_*` se cargan con `bq load` (o son external
-  tables sobre archivos en GCS) con esquema declarado. El archivo
-  `00_sources/raw_sources.sql` **no se ejecuta** en BQ; se reemplaza por la
-  ingesta.
+  tables sobre archivos en GCS) con esquema declarado. Se elimina el
+  `external_location` del source y `{{ source('raw', ...) }}` apunta a la tabla
+  nativa. El staging (transformación) no cambia.
 
 ## 3. Materialización y costo
 
@@ -46,11 +57,14 @@ CLUSTER BY customer_id, merchant_id AS
 SELECT ... ;  -- mismo SELECT que models/marts/fact_transaction.sql
 ```
 
-## 4. Orquestación recomendada
+## 4. Orquestación (ya implementada con dbt)
 
-- Empaquetar las capas como modelos **dbt** (o **Dataform**): `sources`,
-  `staging`, `marts`; los controles de `quality/` pasan a `tests`/`assertions`
-  declarativos; `ref()`/`source()` generan el DAG y el linaje.
-- `analysis_config` (la campaña objetivo y la ventana de atribución) pasa a
-  ser una **variable** de dbt/Dataform o una tabla de configuración.
-- Tests en CI y chequeo de *freshness* de las fuentes antes de publicar marts.
+- Las capas ya son modelos **dbt**: `sources`, `staging`, `marts`, con
+  `ref()`/`source()` generando el DAG y el linaje. En BigQuery basta cambiar el
+  `target` del perfil; los modelos no se tocan (ver §1).
+- Los controles de calidad ya son **tests declarativos** (`unique`, `not_null`,
+  `accepted_values`, `relationships`) — portables a BigQuery sin cambios.
+- La campaña objetivo ya es una **variable** de dbt (`vars.target_campaign_id`),
+  no está hardcodeada.
+- Pendiente para producción: añadir chequeo de *freshness* de las fuentes antes
+  de publicar a los marts, y materializar los hechos con partición/clustering (§3).

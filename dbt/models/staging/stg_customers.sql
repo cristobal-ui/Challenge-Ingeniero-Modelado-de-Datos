@@ -3,8 +3,8 @@
 with src as (
     select
         trim(customer_id)                       as customer_id,
-        try_cast(created_at as timestamp)       as created_at,
-        try_cast(birth_date as date)            as birth_date,
+        {{ csi_safe_cast('created_at', 'timestamp') }}   as created_at,
+        {{ csi_safe_cast('birth_date', 'date') }}        as birth_date,
         upper(trim(gender))                     as gender,
         trim(region)                            as region,
         trim(city)                              as city,

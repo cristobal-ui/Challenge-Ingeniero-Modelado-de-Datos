@@ -9,9 +9,9 @@ events_agg as (
     select
         campaign_id,
         customer_id,
-        bool_or(event_type = 'sent')                            as is_impacted,
-        bool_or(event_type = 'opened')                          as has_opened,
-        bool_or(event_type = 'clicked')                         as has_clicked,
+        {{ csi_bool_or("event_type = 'sent'") }}                as is_impacted,
+        {{ csi_bool_or("event_type = 'opened'") }}              as has_opened,
+        {{ csi_bool_or("event_type = 'clicked'") }}            as has_clicked,
         min(case when event_type = 'sent' then event_date end)  as first_sent_at
     from {{ ref('fact_campaign_event') }}
     where customer_exists and campaign_exists

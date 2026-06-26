@@ -3,8 +3,8 @@ with src as (
     select
         trim(campaign_id)                   as campaign_id,
         trim(campaign_name)                 as campaign_name,
-        try_cast(start_date as date)        as start_date,
-        try_cast(end_date as date)          as end_date,
+        {{ csi_safe_cast('start_date', 'date') }}   as start_date,
+        {{ csi_safe_cast('end_date', 'date') }}     as end_date,
         lower(trim(campaign_type))          as campaign_type,
         lower(trim(target_product))         as target_product
     from {{ source('raw', 'raw_campaigns') }}

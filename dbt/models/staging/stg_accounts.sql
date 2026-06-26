@@ -4,7 +4,7 @@ with src as (
         trim(account_id)                    as account_id,
         trim(customer_id)                   as customer_id,
         lower(trim(account_type))           as account_type,
-        try_cast(created_at as timestamp)   as created_at,
+        {{ csi_safe_cast('created_at', 'timestamp') }}   as created_at,
         lower(trim(status))                 as status
     from {{ source('raw', 'raw_accounts') }}
     where account_id is not null and trim(account_id) <> ''
