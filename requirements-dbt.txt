@@ -1,3 +1,0 @@
-# Dependencias para correr la versión dbt del modelo (Opción B, carpeta dbt/).
-# Versión validada de la solución.
-dbt-duckdb==1.10.1

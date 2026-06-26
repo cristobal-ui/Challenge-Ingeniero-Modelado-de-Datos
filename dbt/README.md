@@ -1,8 +1,8 @@
 # Proyecto dbt — Campaña 3CSI (dbt-duckdb)
 
-Implementación en **dbt Core + DuckDB** de la misma capa analítica que la
-solución SQL por capas de la raíz del repo. Mismo modelo, orquestado con dbt:
-`sources`, `ref()`, materializaciones, documentación y tests declarativos.
+Implementación en **dbt Core + DuckDB** de la capa analítica de la campaña 3CSI:
+modelo por capas (`staging` → `marts`) orquestado con dbt — `sources`, `ref()`,
+materializaciones, documentación y tests declarativos.
 
 ## Cómo correr
 

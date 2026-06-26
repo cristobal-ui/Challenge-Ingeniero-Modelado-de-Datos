@@ -6,85 +6,66 @@ Modelo de datos simple, confiable y documentado para que **Producto y Marketing*
 midan, de forma autónoma, el **impacto, la interacción y la conversión** de la
 campaña `CMP2026053CSI` (3 cuotas sin interés, mayo 2026).
 
-La solución es **SQL organizado por capas** (`staging` → `marts`), ejecutable
-localmente con **DuckDB** y **pensada para BigQuery** en producción. No requiere GCP.
+La solución es un **proyecto dbt** (dbt-duckdb) organizado por capas
+(`staging` → `marts`), ejecutable localmente con **DuckDB** y **pensada para
+BigQuery** en producción. No requiere GCP.
 
-### ✅ Comandos validados (y su salida esperada)
+### ✅ Comando validado (y su salida esperada)
 
 | Comando | Salida esperada |
 |---|---|
-| `pip install -r requirements.txt && python run_local.py --queries` | build OK + QC (7 WARN controlados) + 5 consultas; **320 impactados, 171 convertidos, 53.44%** |
-| `pip install -r requirements-dbt.txt && cd dbt && dbt build --profiles-dir .` | `Done. PASS=40 WARN=3 ERROR=0` (los 3 WARN = huérfanos controlados) |
+| `pip install -r requirements.txt && cd dbt && dbt build --profiles-dir .` | `Done. PASS=40 WARN=3 ERROR=0` (los 3 WARN = huérfanos controlados); **320 impactados, 171 convertidos, 53.44%** |
 
-> Ambas rutas son **equivalentes** y producen los mismos resultados
-> (501/200/8562/871/480 filas). Se ejecutan en CI en cada push (ver
+> Se ejecuta en CI en cada push (ver
 > [`.github/workflows/ci.yml`](.github/workflows/ci.yml)).
 
 ---
 
 ## 1. Cómo ejecutar / revisar la solución
 
-**Requisito:** Python 3.9+ y la librería `duckdb` (única dependencia; el
-runner **no usa pandas**).
+**Requisito:** Python 3.9+ y `dbt-duckdb==1.10.1` (única dependencia). No requiere GCP.
 
 ```bash
-pip install -r requirements.txt   # solo duckdb
-
-# Construye todo el modelo desde los CSV crudos y corre los controles de calidad
-python run_local.py
-
-# Igual que lo anterior + imprime las 5 consultas de negocio
-python run_local.py --queries
-
-# Reapuntar el reporte a otra campaña (parametrizable, sin tocar SQL)
-python run_local.py --queries --campaign CMP202604CASHBACK
-```
-
-El script construye las capas en orden de dependencias, deja la base en
-`challenge.duckdb` (inspeccionable con cualquier cliente DuckDB) e imprime:
-conteos por modelo, violaciones por control de calidad y resultados de negocio.
-La campaña objetivo se define en `models/00_sources/analysis_config.sql` (no
-está hardcodeada en las consultas).
-
-### Opción B — proyecto dbt (mismo modelo, orquestado)
-
-La misma lógica está implementada como **proyecto dbt real** (dbt-duckdb) en
-[`dbt/`](dbt/), con `sources`, `ref()`, `schema.yml` documentado y **tests
-declarativos** (`unique`, `not_null`, `accepted_values`, `relationships`).
-
-```bash
-pip install -r requirements-dbt.txt   # dbt-duckdb==1.10.1 (versión validada)
+pip install -r requirements.txt      # dbt-duckdb==1.10.1 (versión validada)
 cd dbt
-dbt build --profiles-dir .            # construye modelos + corre tests
+dbt build --profiles-dir .           # construye modelos desde los CSV + corre tests
 ```
+
+`dbt build` construye las capas en orden de dependencias (resuelto por el DAG de
+`ref()`/`source()`), materializa los marts y ejecuta **todos los tests** en una
+sola corrida. Los CSV crudos se leen como *external sources* desde
+[`data/`](data/); no hay que cargar nada a mano.
 
 Resultado esperado: `PASS=40 WARN=3 ERROR=0`. Los 3 WARN son las claves
 huérfanas controladas (integridad referencial con `severity: warn`): el modelo
-las detecta sin romper el pipeline. Ver [`dbt/README.md`](dbt/README.md).
+las **detecta sin romper** el pipeline. Detalle en [`dbt/README.md`](dbt/README.md).
+
+```bash
+# Reapuntar el análisis a otra campaña (parametrizable, sin tocar SQL)
+dbt build --profiles-dir . --vars 'target_campaign_id: CMP202604CASHBACK'
+
+# (Opcional) documentación y linaje navegable
+dbt docs generate --profiles-dir . && dbt docs serve --profiles-dir .
+```
 
 ```
 challenge_ia_chile/
 ├── data/                       # CSV crudos + diccionario de datos
-├── models/                     # ── Opción A: SQL puro por capas ──
-│   ├── 00_sources/             # carga de CSV + analysis_config (parámetros)
-│   ├── staging/                # 1 vista por fuente: limpia, tipa, normaliza, deduplica
-│   └── marts/                  # dimensiones, hechos y mart de negocio
-├── quality/quality_checks.sql  # 9 controles de calidad (assertions)
-├── analytics/business_queries.sql  # 5 consultas de negocio
-├── run_local.py                # runner / orquestador DuckDB
-├── requirements.txt            # dependencia ruta A: duckdb
-├── requirements-dbt.txt        # dependencia ruta B: dbt-duckdb==1.10.1
-├── .github/workflows/ci.yml    # CI: corre ambas rutas en cada push
-├── docs/bigquery_migration.md  # cambios exactos para BigQuery
-└── dbt/                        # ── Opción B: proyecto dbt equivalente ──
-    ├── models/{staging,marts}/ # mismos modelos con ref()/source() + schema.yml
-    ├── analyses/               # consultas de negocio (parametrizadas con var)
-    └── tests/                  # test singular de unicidad compuesta
+├── dbt/                        # ── proyecto dbt (la solución) ──
+│   ├── models/
+│   │   ├── staging/            # 1 vista por fuente: limpia, tipa, normaliza, deduplica
+│   │   │   ├── _staging__sources.yml   # CSV crudos como external sources
+│   │   │   └── _staging__models.yml    # documentación + tests de staging
+│   │   └── marts/              # dimensiones, hechos y mart de negocio
+│   │       └── _marts__models.yml      # documentación + tests de marts
+│   ├── analyses/               # consultas de negocio (parametrizadas con var)
+│   ├── tests/                  # test singular de unicidad compuesta del mart
+│   ├── dbt_project.yml
+│   └── profiles.yml            # perfil dbt-duckdb (por eso --profiles-dir .)
+├── requirements.txt            # dbt-duckdb==1.10.1
+├── .github/workflows/ci.yml    # CI: corre `dbt build` en cada push
+└── docs/bigquery_migration.md  # cambios exactos para BigQuery
 ```
-
-> Hay **dos implementaciones equivalentes** del mismo modelo: SQL puro por capas
-> (Opción A, sin frameworks) y un proyecto dbt (Opción B). Ambas producen los
-> mismos resultados (501/200/8562/871/480 filas; 320 impactados, 171 convertidos).
 
 ---
 
@@ -224,23 +205,28 @@ Todas viven en `mart_campaign_conversion`, salvo *ticket promedio* (transacciona
 
 ## 6. Controles de calidad
 
-9 controles implementados en `quality/quality_checks.sql` (cada uno devuelve las filas
-que **violan** la regla; 0 filas = OK). Resultado sobre el dataset:
+Implementados como **tests declarativos de dbt**, definidos en los `schema.yml` y en
+`dbt/tests/`. Se ejecutan con `dbt build` (o `dbt test`). Resultado:
+`PASS=40 WARN=3 ERROR=0`.
 
-| Control | Regla | Violaciones |
-|---|---|---|
-| QC01 | Unicidad PK `dim_customer` | 0 ✅ |
-| QC02 | Unicidad PK `fact_transaction` | 0 ✅ |
-| QC03 | Integridad ref.: txn → cliente existente | 1 ⚠️ |
-| QC04 | Monto ≤ 0 en compra aprobada | 1 ⚠️ |
-| QC05 | Fecha de txn futura / no parseable | 1 ⚠️ |
-| QC06 | `event_type` no reconocido (`bounce`) | 1 ⚠️ |
-| QC07 | Eventos huérfanos (campaña/cliente inexistente) | 2 ⚠️ |
-| QC08 | Campaña con `end_date < start_date` | 1 ⚠️ |
-| QC09 | Estado de transacción no reconocido | 0 ✅ |
+| Control | Tipo de test | Dónde | Resultado |
+|---|---|---|---|
+| Unicidad de PKs | `unique` | `customer_id`, `merchant_id`, `transaction_id`, `event_id`, `account_id`, `card_id`, `campaign_id` | PASS ✅ |
+| No nulos en claves | `not_null` | mismas PKs + claves del mart | PASS ✅ |
+| Estados normalizados válidos | `accepted_values` | `customer_status`, `risk_segment`, `transaction_status` | PASS ✅ |
+| Integridad ref.: txn → cliente | `relationships` (severity `warn`) | `fact_transaction.customer_id` → `dim_customer` | 1 ⚠️ |
+| Integridad ref.: txn → comercio | `relationships` (`warn`) | `fact_transaction.merchant_id` → `dim_merchant` | 1 ⚠️ |
+| Integridad ref.: evento → campaña | `relationships` (`warn`) | `fact_campaign_event.campaign_id` → `stg_campaigns` | 1 ⚠️ |
+| Unicidad compuesta del mart | test singular | `(campaign_id, customer_id)` en `mart_campaign_conversion` | PASS ✅ |
 
-Los ⚠️ son los **errores controlados** del dataset: el modelo los **detecta, aísla y
-documenta**, y no entran en las métricas oficiales.
+Los **3 WARN** son los huérfanos inyectados a propósito en el dataset: configurados
+como `warn` (no `error`), el modelo los **detecta y reporta** sin romper el build.
+
+Además, los **errores controlados** restantes (monto ≤ 0, fecha futura, `event_type`
+no estándar como `bounce`, campaña con `end_date < start_date`) se **aíslan en staging
+con banderas** (`is_invalid_amount`, `is_invalid_date`, `is_valid_event_type`,
+`is_valid_date_range`) y quedan **excluidos de las métricas oficiales** sin borrar la
+fila (ver §7). La calidad se *mide*, no se esconde.
 
 ---
 
@@ -309,7 +295,7 @@ Con eso respondemos, sin pedir ayuda a un analista, cuatro preguntas:
 1. **¿A cuántos clientes les llegó la campaña?** → 320.
 2. **¿Cuántos abrieron o hicieron clic?** → 210.
 3. **¿Cuántos terminaron comprando en 3 cuotas?** → 171 (**53 % de conversión**).
-4. **¿Qué comercios y segmentos funcionaron mejor?** → ver `analytics/business_queries.sql`.
+4. **¿Qué comercios y segmentos funcionaron mejor?** → ver `dbt/analyses/business_queries.sql`.
 
 Lo importante: **todos los equipos ven los mismos números**, porque "cliente convertido"
 o "monto en 3 cuotas" se define **una sola vez** en el modelo y no en cada planilla.

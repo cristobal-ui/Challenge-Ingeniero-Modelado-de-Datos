@@ -1,3 +1,3 @@
-# Única dependencia para ejecutar la solución localmente.
-# El runner no usa pandas: imprime los resultados con un formateador propio.
-duckdb>=1.0
+# Dependencia para construir el modelo (proyecto dbt en dbt/).
+# Versión validada de la solución.
+dbt-duckdb==1.10.1

@@ -1,8 +1,4 @@
-# Base generada por el runner (reproducible con `python run_local.py`)
-challenge.duckdb
-challenge.duckdb.wal
-
-# Python
+# Entorno Python / dbt
 __pycache__/
 *.pyc
 .venv/
